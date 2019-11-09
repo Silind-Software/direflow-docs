@@ -1,6 +1,6 @@
 export default {
   title: 'Direflow',
-  files: 'src/pages/docs/**/*.{md,markdown,mdx}',
+  files: 'src/pages/**/*.{md,markdown,mdx}',
   repository: false,
   menu: [
     'Introduction',

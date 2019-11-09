@@ -30,7 +30,7 @@ export const Headline = styled.div`
   ${logoFont}
   font-size: 28px;
   font-weight: 100;
-  color: #344999;
+  color: #4B6A97;
   text-align: center;
 
   @media ${device.tablet} {
@@ -100,8 +100,8 @@ export const Button = styled.div`
   display: inline-block;
   border-radius: 4px;
   color: white;
-  background-color: #344999;
-  border: 1px solid #344999;
+  background-color: #4B6A97;
+  border: 1px solid #4B6A97;
   ${secondaryFont}
   font-size: 12px;
   padding: 15px 20px;
@@ -122,13 +122,13 @@ export const Button = styled.div`
   }
 
   &:hover {
-    background-color: #263877;
+    background-color: #5781C2;
   }
 `;
 
 export const SecondaryButton = styled(Button)`
   background-color: transparent;
-  color: #344999;
+  color: #4B6A97;
   box-sizing: border-box;
   padding: 15px 20px;
 
@@ -139,5 +139,5 @@ export const SecondaryButton = styled(Button)`
 
 export const Highligt = styled.span`
   font-weight: bold;
-  color: #344999;
+  color: #4B6A97;
 `;

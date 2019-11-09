@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
   height: 75px;
   background-color: white;
-  color: #344999;
+  color: #4B6A97;
   display: flex;
   justify-content: space-between;
   align-items: center;

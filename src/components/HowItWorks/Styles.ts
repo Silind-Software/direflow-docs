@@ -136,7 +136,7 @@ export const IllustrationContent = styled.div`
 `;
 
 export const IllustrationHeadline = styled.div`
-  color: #354999;
+  color: #4B6A97;
   font-weight: bold;
   margin-top: 10px;
   display: none;
@@ -188,7 +188,7 @@ export const BuildBox = styled.div`
   height: 200px;
   position: absolute;
   background-color: white;
-  box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 30px #5781C2cf;
   ${center};
 `;
 

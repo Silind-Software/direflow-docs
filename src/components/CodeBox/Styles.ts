@@ -5,7 +5,7 @@ import { device } from '../../styles/Device';
 
 export const CodeBoxContainer = styled.div`
   width: 100%;
-  height: 375px;
+  height: 335px;
   background-color: #151A22;
   border-radius: 8px;
   box-shadow: 6px 8px 20px 5px rgba(0, 0, 0, 0.4);
@@ -15,17 +15,17 @@ export const CodeBoxContainer = styled.div`
 
   @media ${device.tablet} {
     width: 675px;
-    height: 425px;
+    height: 400px;
   }
 
   @media ${device.laptop} {
     width: 750px;
-    height: 450px;
+    height: 420px;
   }
 
   @media ${device.desktop} {
     width: 850px;
-    height: 500px;
+    height: 470px;
   }
 `;
 
