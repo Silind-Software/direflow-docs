@@ -24,7 +24,6 @@ import { Button } from '../Jumbotron/Styles';
 const HowItWorks: FC = () => {
   return (
     <Container>
-      <Headline>How it works</Headline>
       <SubText>Use the power of React to create your component.</SubText>
       <SubText>Build it, then use it and share it as a native Web Component.</SubText>
       <IllustrationWrapper>

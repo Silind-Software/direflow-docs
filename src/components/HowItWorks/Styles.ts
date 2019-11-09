@@ -52,8 +52,7 @@ export const Container = styled.div`
 export const Headline = styled.div`
   font-size: 28px;
   color: #333;
-  font-weight: bold;
-  ${mainFont}
+  ${secondaryFont}
   margin-bottom: 10px;
 
   @media ${device.tablet} {
@@ -72,7 +71,6 @@ export const Headline = styled.div`
 export const SubText = styled.div`
   font-size: 14px;
   color: #333;
-  font-weight: bold;
   ${mainFont}
   text-align: center;
   box-sizing: border-box;
@@ -93,6 +91,7 @@ export const SubText = styled.div`
 
 export const IllustrationWrapper = styled.div`
   position: relative;
+  margin-bottom: 50px;
 `;
 
 export const IllustrationContainer = styled.div`

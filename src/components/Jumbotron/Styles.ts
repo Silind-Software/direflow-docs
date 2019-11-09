@@ -10,6 +10,7 @@ export const JumbotronContainer = styled.div`
   border-bottom: 1px solid #e3e7f7;
   flex-direction: column;
   box-sizing: border-box;
+  box-shadow: 0 15px 20px #e3e7f7;
   padding: 0 25px;
   ${center}
 
@@ -90,6 +91,7 @@ export const Subtext = styled.div`
 
 export const ButtonContainer = styled.div`
   display: flex;
+  padding-top: 75px;
   align-items: center;
   & > * {
     margin: 0 5px;
@@ -107,7 +109,6 @@ export const Button = styled.div`
   padding: 15px 20px;
   transition: 0.3s;
   cursor: pointer;
-  margin-top: 75px;
 
   @media ${device.tablet} {
     font-size: 18px;
@@ -123,6 +124,7 @@ export const Button = styled.div`
 
   &:hover {
     background-color: #5781C2;
+    border: 1px solid #5781C2;
   }
 `;
 
