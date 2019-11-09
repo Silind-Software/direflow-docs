@@ -1,0 +1,105 @@
+---
+name: 'Events and styles'
+route: '/events-and-styles'
+edit: false
+---
+
+import { Link } from '@reach/router';
+import { Button } from '../../../components/Jumbotron/Styles';
+
+## Events
+One thing is providing the Web Component with data through properties and attributes - but we also want the Web Component to be able to fire events that we can listen to.  
+  
+In order to dispatch events that can be listened to from the Web Component, use the `EventContext`.  
+For example - if you want to dispatch a custom event 'my-event' that is triggered onClick, all you have to do is:  
+```jsx
+import React, { FC, useContext } from 'react';
+import { EventContext } from 'create-react-web-component';
+
+const App: FC = () => {
+  const dispatch = useContext(EventContext);
+
+  const handleClick = () => {
+    const event = new Event('my-event');
+    dispatch(event);
+  }
+
+  return (
+    <div onClick={handleClick}>Click to dispatch 'my-event'</div>
+  );
+};
+```
+
+Now you can add a listener when you consume the component:
+```html
+<awesome-component></awesome-component>
+```
+
+```javascript
+const component = document.querySelector('awesome-component');
+
+component.addEventListener('my-event', () => {
+  // handle event
+});
+```
+
+## Styles
+In order to use styles in your components, use the `<Styled>` component, or the `withStyles()` HOC.  
+First import your css-file like this:
+```typescript
+import styles from './App.css';
+```
+
+There are two cases in how to style a component: 
+  
+- A component where top-level is an html element, e.g. a `<div>` or a `<span>` etc.
+- A component where top-level is another React Component, a fragment, a function call that returns a component, etc.
+
+**In the first case**, we wrap the component in the `<Styled>` component, and pass down the imported style as props:  
+```jsx
+import React, { FC } from 'react';
+import { Styled } from 'create-react-web-component';
+import styles from './App.css';
+
+const App: FC = () => {
+  return (
+    <Styled styles={styles}>
+      <div className='app'>
+        <div className='header-title'>My React Web Component</div>
+      </div>
+    </Styled>
+  );
+};
+
+export default App;
+```
+Any children of the `<Styled>` component can now reference the styles.
+
+**In the second case**, we use the the `withStyles()` HOC.
+
+```jsx
+import React, { FC } from 'react';
+import { withStyles } from 'create-react-web-component';
+import styles from './App.css';
+
+const App: FC = () => {
+  return (
+    <>
+      <CoolReactComponent />
+      <AwesomeReactComponent />
+    </>
+  );
+};
+
+export default withStyles(styles)(App);
+```
+
+The main difference between the `<Styled>` component and the `withStyles()` HOC, is that the `<Styled>` component will inject all styles just below the html element that it wraps.  
+  
+The `withStyles()` will add an extra `<div>` element around the content that it wraps, and inject all styles into this.
+
+<span style="display: flex; justify-content: center">
+  <Link to='/usage'>
+    <Button>→ Usage</Button>
+  </Link>
+</span>

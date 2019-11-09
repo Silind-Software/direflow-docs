@@ -1,0 +1,40 @@
+---
+name: 'Get started'
+route: '/get-started'
+edit: false
+---
+
+import { Link } from '@reach/router';
+import { Button } from '../../../components/Jumbotron/Styles';
+
+
+## Create new project
+Get started by running the command
+```console
+npx create-react-web-component
+```
+Or install the package globally with yarn or NPM
+```console
+yarn global add create-react-web-component
+```
+```console
+npm i -g create-react-web-component
+```
+
+This will bootstrap a new project for you - you can choose whether you want to use **TypeScript** or regular **JavaScript**.  
+Now use the following commands:
+```console
+cd <project-folder>
+yarn install
+yarn start
+```
+Your project will start running on `localhost:3000` and your browser opens a new window  
+<p style="display: flex; justify-content: center">
+<img src="https://silind-s3.s3.eu-west-2.amazonaws.com/create-react-web-component-demo/create-react-web-component.png" />
+</p>
+
+<span style="display: flex; justify-content: center">
+  <Link to='/properties-and-attributes'>
+    <Button>→ Properties and attributes</Button>
+  </Link>
+</span>

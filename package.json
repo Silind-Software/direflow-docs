@@ -1,0 +1,58 @@
+{
+  "name": "direflow-docs",
+  "private": true,
+  "description": "Official documentation for Direflow",
+  "version": "0.1.0",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.4.5",
+    "@mdx-js/react": "^1.4.5",
+    "@types/react-helmet": "^5.0.11",
+    "@types/styled-components": "^4.1.19",
+    "babel-plugin-styled-components": "^1.10.6",
+    "docz": "^2.0.0-rc.38",
+    "dotenv": "^8.1.0",
+    "gatsby": "^2.15.14",
+    "gatsby-image": "^2.2.18",
+    "gatsby-plugin-google-analytics": "^2.1.20",
+    "gatsby-plugin-manifest": "^2.2.16",
+    "gatsby-plugin-mdx": "^1.0.41",
+    "gatsby-plugin-offline": "^2.2.10",
+    "gatsby-plugin-react-helmet": "^3.1.10",
+    "gatsby-plugin-sharp": "^2.2.21",
+    "gatsby-plugin-styled-components": "^3.1.5",
+    "gatsby-plugin-typescript": "^2.1.7",
+    "gatsby-source-filesystem": "^2.1.22",
+    "gatsby-theme-docz": "^2.0.0-rc.38",
+    "gatsby-transformer-sharp": "^2.2.14",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-device-detect": "^1.9.7",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "scheduler": "0.14.0",
+    "styled-components": "^4.3.2",
+    "tslint": "^5.20.0",
+    "tslint-config-airbnb": "^5.11.2",
+    "tslint-config-silind": "^1.0.21",
+    "tslint-react": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.5",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "prettier": "^1.18.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "start": "gatsby develop",
+    "serve": "gatsby serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Silind-Software/direflow"
+  }
+}

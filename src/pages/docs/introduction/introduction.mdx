@@ -1,0 +1,35 @@
+---
+name: 'Introduction'
+route: '/introduction'
+edit: false
+---
+
+import { Link } from '@reach/router';
+import { Button } from '../../../components/Jumbotron/Styles';
+
+## Why Web Components?
+Web Components is a browser standard that was added by WC3 (World Wide Web Consortium).  
+They give us all the power that a modular, atomic, component-based design does, but in a framework-agnostic way that enables us to run encapsulated components directly in the browser as custom HTML elements.
+  
+With Web Components you can build, deploy, share and consume individual components without depending on any frameworks like React or Angular.
+  
+In this example you can see how easy it is to use a Web Component
+<iframe height="450" style="width: 100%;" scrolling="no" title="gOOLbmV" src="https://codepen.io/Silind/embed/gOOLbmV?height=265&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/Silind/pen/gOOLbmV'>gOOLbmV</a> by Silind Software
+  (<a href='https://codepen.io/Silind'>@Silind</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## Why React?
+Even though Web Components can be build entirely with vanilla JavaScript, it's pretty handy to use a library like React to build the UI.  
+  
+Direflow allows you to build rich, declarative UI's, and then ship it as a custom element that can run natively in the browser! 💪
+  
+You can also check out this more advanced example on CodePen.  
+Here we have two crypto currency widgets that are fetching live data and interacting with each other:  
+https://codepen.io/Silind/pen/OJJbJXE
+
+<span style="display: flex; justify-content: center">
+  <Link to='/get-started'>
+    <Button>→ Get Started</Button>
+  </Link>
+</span>

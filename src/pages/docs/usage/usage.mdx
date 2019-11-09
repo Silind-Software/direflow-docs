@@ -1,0 +1,61 @@
+---
+name: 'Usage'
+route: '/usage'
+edit: false
+---
+
+import { Link } from '@reach/router';
+import { Button } from '../../../components/Jumbotron/Styles';
+
+## Build
+Build your component by running the command
+```console
+yarn build
+```
+or 
+```console
+npm run build
+```
+
+This will create a `/build` folder containing a file with the name of your component, e.g. `bundle.js`.  
+In order to use your Web Component, simply import this file in a project, and use your Web Component as:
+```html
+<awesome-component componentTitle="Awesome Component">
+</awesome-component>
+```
+
+## Static files
+A Web Component is a self-contained native component that runs within a shadowed scope in the DOM.  
+For the same reason, it is rather incovenient to bundle static files with the Web Component itself.  
+In order to use images or graphic, there are two options:
+- **Serve the images, and reference it in a url**: `<img src="https://some-cloud/some-image.png" />`
+- **Use SVG**: You can import SVG-files into the component. React will render these as SVG Elements inside the React App instead of loading them at runtime.
+
+## Serve
+For development, you can serve the `bundle.js` file.  
+Simply start the dev-server by using
+```console
+yarn start
+```
+or
+```console
+npm start
+```
+This will serve your file on `http://localhost:3000/bundle.js`
+
+## Shadow DOM
+The Web Component will run inside a shadow DOM.  
+However, sometimes that's not really what we want.  
+  
+In order to disable the shadow-root entirely, simply pass in an option to the *render* method of ReactWebComponent:
+- Go to *index.tsx* or *index.js* inside the *src* folder
+- Pass the option `{ shadow: false }` as the third argument of the *render* method:
+  ```javascript
+  ReactWebComponent.render(App, 'awesome-component', { shadow: false });
+  ```
+
+<span style="display: flex; justify-content: center">
+  <Link to='/contributing'>
+    <Button>→ Contributing</Button>
+  </Link>
+</span>
