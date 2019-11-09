@@ -1,28 +1,11 @@
 ---
-name: 'Usage'
-route: '/usage'
+name: 'Additional'
+route: '/additional'
 edit: false
 ---
 
 import { Link } from '@reach/router';
 import { Button } from '../../../components/Jumbotron/Styles';
-
-## Build
-Build your component by running the command
-```console
-yarn build
-```
-or 
-```console
-npm run build
-```
-
-This will create a `/build` folder containing a file with the name of your component, e.g. `bundle.js`.  
-In order to use your Web Component, simply import this file in a project, and use your Web Component as:
-```html
-<awesome-component componentTitle="Awesome Component">
-</awesome-component>
-```
 
 ## Static files
 A Web Component is a self-contained native component that runs within a shadowed scope in the DOM.  
@@ -53,6 +36,55 @@ In order to disable the shadow-root entirely, simply pass in an option to the *r
   ```javascript
   ReactWebComponent.render(App, 'awesome-component', { shadow: false });
   ```
+
+## IE 11 Support
+In order to support IE 11, you will need to import the necessary polyfills.  
+
+Start by installing
+```console
+yarn add abortcontroller-polyfill proxy-polyfill
+```
+or
+```console
+npm install abortcontroller-polyfill proxy-polyfill
+```
+
+Now add the polyfills to the very top of your index.js or index.tsx file
+```javascript
+// Add these polyfills for ie 11
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only';
+import 'proxy-polyfill';
+
+import { ReactWebComponent } from 'create-react-web-component';
+import { componentAttributes, componentProperties } from './componentProperties';
+import App from './App';
+
+ReactWebComponent.setAttributes(componentAttributes);
+ReactWebComponent.setProperties(componentProperties);
+ReactWebComponent.render(App, 'the-component');
+```
+
+If you want to use IE 11 during development, add 'IE 11' to `browserlist` under `development` in `package.json`
+```json
+"browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "IE 11" // <- Add this line
+    ]
+  },
+```
+
+<br />
+<br />
 
 <span style="display: flex; justify-content: center">
   <Link to='/contributing'>

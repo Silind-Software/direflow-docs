@@ -16,7 +16,7 @@ const IndexPage = () => {
       <Header />
       <Jumbotron />
       <Section>
-        <Headline>Get started in minuts</Headline>
+        <Headline>Get started in minutes</Headline>
         <CodeBox />
       </Section>
       <Section>

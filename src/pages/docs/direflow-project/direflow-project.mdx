@@ -1,0 +1,145 @@
+---
+name: 'Direflow Project'
+route: '/direflow-project'
+edit: false
+---
+
+import { Link } from '@reach/router';
+import { Button } from '../../../components/Jumbotron/Styles';
+
+## Direflow Project
+With Direflow, you can also create a Direflow Project, which will contain multiple Direflow Components.  
+This enables us to share dependencies across multiple Direflow Components, and bundle them together in one file: `projectBundle.js`.  
+  
+It also gives us the ability to add an extra layer of logic on top of all the Direflow Components.  
+This is particularly usefull if we want to share data between the Direflow Components, or have them interact with each another.
+
+## Setup
+When you create a new Direflow Project from `direflow-cli`, you will get a basic setup that looks like this:  
+(TypeScript will have a couple of additional files)  
+
+```
+.
+├──direflow-components
+|  ├──component-1
+|  ├──component-2
+|  └──component-...
+├──public
+|  ├──index.css
+|  └──index.html
+├──src
+|  └──index.js
+├──.env
+├──direflow-config.js
+├──direflow-webpack.js
+├──package.json
+└──README.md
+```
+
+### index.html
+The public folder contains an `index.html` file.  
+In this file, you can consume your components during development.  
+Add one or more of your custom elements in here.  
+
+### direflow-config.js
+This file will contain some meta-data about your Direflow Project.  
+Later on, there will be plugins to a Direflow Project, just as with a Direflow Component.
+
+### direflow-webpack.js
+This file gives you complete control over the Webpack setup.  
+A Direflow Project is using a rather slim Webpack setup to bundle all Direflow Components together with any additional logic on Project level.  
+In this file you can add any additions to the Webpack setup.  
+
+```javascript
+module.exports = {
+  // Add your own webpack config here (optional)
+};
+```
+
+## Add a Direflow Component
+In order to add a Direflow Component to your project, simply cd into the project folder, and run
+```console
+direflow create
+```
+You will then get prompted to create a new Direflow Component.  
+  
+All Direflow Components belonging to a Direflow Project will be found in the folder:  
+`direflow-components`
+
+## Register a Direflow Component
+A typical use case is, that we want to register a Direflow Component, and trigger some functionality in the moment the Direflow Component is mounted on the DOM.  
+  
+For this, you use the `registerComponent` function.  
+This function will get triggered in the moment the component 'cool-component' is mounted on the DOM of the host application.
+
+```javascript
+import { registerComponent } from 'direflow-project';
+
+registerComponent('cool-component')
+  .onMount((component) => {
+    // In here, 'component' will be treated as a HTML Element.
+    // You can now set properties, add event listeners, etc ...
+  })
+  .onFail((err) => {
+    // We go in here, if anything goes wrong ...
+  });
+```
+
+## Developing
+During development of your Direflow Project, you can start the project on development server by running
+```console
+yarn start
+```
+or
+```console
+npm start
+```
+### Important note
+Every time you use `yarn start`, all Direflow Components need to be built. This can be a heavy operation, and might be slow.  
+Given that all Direflow Components are built prior to starting the Direflow Project, you cannot get hot-reloading when you change something in any of the components.  
+  
+Generally, in order to develop on a single Direflow Component of your project, simply cd into the Direflow Component and use `yarn start` from there.
+
+## Build
+Build your Direflow Project by running the command
+```console
+yarn build
+```
+or 
+```console
+npm run build
+```
+
+This will create a `/build` folder containing a `projectBundle.js` file.  
+In order to use the Direflow Project, simply import this file in a project, and you can now use all of your Web Components.  
+Any functionality that is added upon registration (mounting) of a Direflow Component, will also be included here.  
+```html
+<script src="./projectBundle.js"></script>
+
+<awesome-component componentTitle="Awesome Component">
+</awesome-component>
+
+<cool-component componentTitle="Cool Component">
+</cool-component>
+```
+
+
+## Commands
+A Direflow Project comes with a set of convenient commands:
+- `yarn start`: Will start up the project on `localhost:8000`
+- `yarn build`: Will make a bundle file, `build/projectBundle.js` containing the Direflow Project and all Direflow Components
+- `yarn install:all`: Will install all Direflow Components in the project.  
+  Equivalent to cd'ing into each individual Direflow Component and run `yarn install`
+- `yarn test:all` Will run tests on all Direflow Components in the project.  
+  Equivalent to cd'ing into each individual Direflow Component and run `yarn test`
+- `yarn build:all` Will build all Direflow Components in the project.  
+  Equivalent to cd'ing into each individual Direflow Component and run `yarn build`
+
+<br />
+<br />
+
+<span style="display: flex; justify-content: center">
+  <Link to='/properties-and-attributes'>
+    <Button>→ Properties and attributes</Button>
+  </Link>
+</span>

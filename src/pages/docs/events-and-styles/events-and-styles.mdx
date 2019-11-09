@@ -98,8 +98,40 @@ The main difference between the `<Styled>` component and the `withStyles()` HOC,
   
 The `withStyles()` will add an extra `<div>` element around the content that it wraps, and inject all styles into this.
 
+### Styling alternatives
+
+#### Sass / scss
+If you want to use sass instead of regular css, you can simply rename your files to `.scss` instead of `css`.  
+Everything else will be the same as mentioned above.
+
+#### Styled Components
+Direflow offers native support for using `styled-components`.  
+You only need to do two things in order to get started:
+  
+Add `styled-component` using yarn or npm:
+```console
+yarn add styled-components
+```
+or
+```console
+npm install styled-components
+```
+
+Then add `styled-components` to the lists of plugins in `direflow-config.js`.
+```javascript
+plugins: [
+  {
+    name: 'styled-components'
+  },
+]
+```
+See more under [plugins](/plugins)
+
+<br />
+<br />
+
 <span style="display: flex; justify-content: center">
-  <Link to='/usage'>
-    <Button>→ Usage</Button>
+  <Link to='/plugins'>
+    <Button>→ Plugins</Button>
   </Link>
 </span>

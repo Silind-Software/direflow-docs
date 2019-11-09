@@ -7,34 +7,52 @@ edit: false
 import { Link } from '@reach/router';
 import { Button } from '../../../components/Jumbotron/Styles';
 
-
-## Create new project
-Get started by running the command
+## Install CLI
+Start by installing direflow-CLI
 ```console
-npx create-react-web-component
-```
-Or install the package globally with yarn or NPM
-```console
-yarn global add create-react-web-component
-```
-```console
-npm i -g create-react-web-component
+npm i -g direflow-cli
 ```
 
-This will bootstrap a new project for you - you can choose whether you want to use **TypeScript** or regular **JavaScript**.  
-Now use the following commands:
+## Create new Direflow Component
+Now, use this command to create a new Direflow Component
+```console
+direflow create -c
+```
+Now you can choose a name for your component and a prefered language. Currently both JavaScript and TypeScript is supported.  
+A folder will be created at your current location.  
+  
+Now, cd into your new project and use the following commands
 ```console
 cd <project-folder>
 yarn install
 yarn start
 ```
-Your project will start running on `localhost:3000` and your browser opens a new window  
+Your Direflow Component will start running on `localhost:3000` and your browser opens a new window  
 <p style="display: flex; justify-content: center">
 <img src="https://silind-s3.s3.eu-west-2.amazonaws.com/create-react-web-component-demo/create-react-web-component.png" />
 </p>
 
+<br />
+<br />
+
+## Create new Direflow Project
+In order to create a new Direflow Project, use this command
+```console
+direflow create -p
+```
+Now you can choose a name for your project and a prefered language. Currently both JavaScript and TypeScript is supported.  
+Note, that you can still choose a different language on individual Direflow Components.
+
+A folder will be created at your current location.  
+  
+Now you can create your first component by cd'ing into this folder and use
+```console
+direflow create
+```
+The Direflow Component will be created in `direflow-components/your-component`
+
 <span style="display: flex; justify-content: center">
-  <Link to='/properties-and-attributes'>
-    <Button>→ Properties and attributes</Button>
+  <Link to='/direflow-component'>
+    <Button>→ Direflow Component</Button>
   </Link>
 </span>

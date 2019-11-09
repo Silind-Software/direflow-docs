@@ -5,9 +5,12 @@ export default {
   menu: [
     'Introduction',
     'Get started',
+    'Direflow Component',
+    'Direflow Project',
     'Properties and attributes',
     'Events and styles',
-    'Usage',
+    'Plugins',
+    'Additional',
     'Contributing'
   ],
 };

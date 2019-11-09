@@ -1,0 +1,96 @@
+---
+name: 'Plugins'
+route: '/plugins'
+edit: false
+---
+
+import { Link } from '@reach/router';
+import { Button } from '../../../components/Jumbotron/Styles';
+
+Direflow comes with a set of handy plugins, and more will be added in the future.  
+In order to add a plugin, go to the file `direflow-config.js`  
+Here, we can add plugins to the `plugins` list.  
+  
+All plugins follow the format
+```javascript
+{
+  name: 'name-of-plugin',
+  options: {
+    // An optional options property
+  }
+}
+```
+
+## font-loader
+The `font-loader` plugin allows us to load fonts and use them in the Direflow Component.  
+  
+Example:
+```javascript
+plugins: [
+  {
+    name: 'font-loader',
+    options: {
+      google: {
+        families: ['PT Sans', 'Noto Sans JP'],
+      },
+    },
+  },
+],
+```
+Now we can use these fonts directly in my style-sheets:
+```css
+font-family: 'PT Sans', sans-serif;
+```
+
+See [Web Font Loader](https://github.com/typekit/webfontloader) for different configurations.
+
+## script-loader
+The `script-loader` plugin allows us to load external scripts and include them in the Direflow Component build.  
+  
+Example:
+```javascript
+plugins: [
+  {
+    name: 'script-loader',
+    options: {
+      externals: [
+        {
+          module: 'jquery',
+          entry: 'https://unpkg.com/jquery@3.2.1/dist/jquery.min.js',
+          global: 'jQuery',
+        },
+      ],
+    },
+  },
+],
+```
+See [html-webpack-externals-plugin](https://github.com/mmiller42/html-webpack-externals-plugin#readme) for different configurations.
+
+## styled-components
+The `styled-components` plugin allows us to use the `styled-components` module in the Direflow Component.  
+  
+Example:
+```javascript
+plugins: [
+  {
+    name: 'styled-components'
+  },
+],
+```
+Now, just install `styled-components` in your Direflow Component, and you're ready to go.
+```console
+yarn add styled-components
+```
+or
+```console
+npm install styled-components
+```
+
+<br />
+<br />
+
+<span style="display: flex; justify-content: center">
+  <Link to='/additional'>
+    <Button>→ Additional</Button>
+  </Link>
+</span>
