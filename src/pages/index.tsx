@@ -6,8 +6,8 @@ import { Section } from '../styles/MainStyles';
 import { Header } from '../gatsby-theme-docz/components/Header';
 import Footer from '../components/Footer/Footer';
 import HowItWorks from '../components/HowItWorks/HowItWorks';
-import '../styles/main.css';
 import { Headline } from '../components/HowItWorks/Styles';
+import '../styles/main.css';
 
 const IndexPage = () => {
   return (

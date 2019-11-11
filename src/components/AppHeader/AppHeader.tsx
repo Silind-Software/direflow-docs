@@ -17,7 +17,7 @@ const AppHeader: FC<IProps> = (props) => {
       <meta property='og:url' content='https://direflow.io/' />
       <meta
         property='og:image'
-        content='https://silind-s3.s3.eu-west-2.amazonaws.com/create-react-web-component-demo/og-image.png'
+        content='https://silind-s3.s3.eu-west-2.amazonaws.com/direflow/og-image.png'
       />
       <meta property='og:description' content='Direflow' />
 
@@ -28,7 +28,7 @@ const AppHeader: FC<IProps> = (props) => {
       <meta name='twitter:description' content='Official documentation for Direflow' />
       <meta
         name='twitter:image'
-        content='https://silind-s3.s3.eu-west-2.amazonaws.com/create-react-web-component-demo/og-image.png'
+        content='https://silind-s3.s3.eu-west-2.amazonaws.com/direflow/og-image.png'
       />
 
       <title>{title}</title>
