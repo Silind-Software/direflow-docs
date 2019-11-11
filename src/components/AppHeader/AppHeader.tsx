@@ -25,7 +25,7 @@ const AppHeader: FC<IProps> = (props) => {
       <meta name='twitter:site' content='@silindsoftware' />
       <meta name='twitter:creator' content='@silindsoftware' />
       <meta name='twitter:title' content='Direflow' />
-      <meta name='twitter:description' content='Official documentation for Direflow' />
+      <meta name='twitter:description' content='Create Web Components using React' />
       <meta
         name='twitter:image'
         content='https://silind-s3.s3.eu-west-2.amazonaws.com/direflow/og-image.png'
