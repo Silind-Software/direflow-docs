@@ -14,7 +14,7 @@ In order to dispatch events that can be listened to from the Web Component, use 
 For example - if you want to dispatch a custom event 'my-event' that is triggered onClick, all you have to do is:  
 ```jsx
 import React, { FC, useContext } from 'react';
-import { EventContext } from 'create-react-web-component';
+import { EventContext } from 'direflow-component';
 
 const App: FC = () => {
   const dispatch = useContext(EventContext);
@@ -58,7 +58,7 @@ There are two cases in how to style a component:
 **In the first case**, we wrap the component in the `<Styled>` component, and pass down the imported style as props:  
 ```jsx
 import React, { FC } from 'react';
-import { Styled } from 'create-react-web-component';
+import { Styled } from 'direflow-component';
 import styles from './App.css';
 
 const App: FC = () => {
@@ -79,7 +79,7 @@ Any children of the `<Styled>` component can now reference the styles.
 
 ```jsx
 import React, { FC } from 'react';
-import { withStyles } from 'create-react-web-component';
+import { withStyles } from 'direflow-component';
 import styles from './App.css';
 
 const App: FC = () => {

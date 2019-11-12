@@ -57,13 +57,13 @@ import 'react-app-polyfill/stable';
 import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only';
 import 'proxy-polyfill';
 
-import { ReactWebComponent } from 'create-react-web-component';
+import DireflowComponent from 'direflow-component';
 import { componentAttributes, componentProperties } from './componentProperties';
 import App from './App';
 
-ReactWebComponent.setAttributes(componentAttributes);
-ReactWebComponent.setProperties(componentProperties);
-ReactWebComponent.render(App, 'the-component');
+DireflowComponent.setAttributes(componentAttributes);
+DireflowComponent.setProperties(componentProperties);
+DireflowComponent.render(App, 'awesome-component');
 ```
 
 If you want to use IE 11 during development, add 'IE 11' to `browserlist` under `development` in `package.json`
