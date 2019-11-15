@@ -5,7 +5,6 @@ import { device } from '../../styles/Device';
 
 export const FooterContainer = styled.div`
   width: 100%;
-  height: 300px;
   background-color: white;
   border-top: 1px solid #e3e7f7;
   box-sizing: border-box;
@@ -58,6 +57,7 @@ export const BottomLine = styled.div`
   ${secondaryFont}
   color: #888;
   transition: 0.3s;
+  margin-top: 25px;
 
   &:hover {
     color: #38559e;

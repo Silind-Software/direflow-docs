@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { center, secondaryFont, logoFont } from '../../styles/Mixins';
 import { device } from '../../styles/Device';
 import headlineImage from '../../images/headline-image.svg';
+import bigLogo from '../../images/logo-big.svg';
+import pairLogo from '../../images/logo-pair.svg';
 
 export const JumbotronContainer = styled.div`
   width: 100%;
@@ -12,6 +14,8 @@ export const JumbotronContainer = styled.div`
   box-sizing: border-box;
   box-shadow: 0 15px 20px #e3e7f7;
   padding: 0 25px;
+  position: relative;
+  overflow: hidden;
   ${center}
 
   @media ${device.tablet} {
@@ -24,6 +28,80 @@ export const JumbotronContainer = styled.div`
 
   @media ${device.desktop} {
     height: 500px;
+  }
+`;
+
+export const Content = styled.div`
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  z-index: 2;
+  ${center}
+`;
+
+export const BottomFadeLine = styled.div`
+  width: 100%;
+  height: 35%;
+  background-image: linear-gradient(rgba(255,255,255,0), rgb(255,255,255, 0.75));
+  position: absolute;
+  bottom: 0;
+`;
+
+export const BigLogo = styled.div`
+  width: 600px;
+  height: 350px;
+  background-image: url(${bigLogo});
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: -250px;
+  opacity: 0.2;
+  bottom: 0;
+
+  @media ${device.tablet} {
+    width: 700px;
+    right: -250px;
+    height: 350px;
+    background-size: 75%;
+  }
+
+  @media ${device.laptop} {
+    right: 0%;
+    width: 700px;
+    height: 400px;
+    background-size: 85%;
+  }
+
+  @media ${device.desktop} {
+    right: 5%;
+    width: 800px;
+    height: 500px;
+    background-size: 100%;
+  }
+`;
+
+export const PairLogo = styled.div`
+  width: 250px;
+  height: 400px;
+  background-image: url(${pairLogo});
+  background-size: 100%;
+  position: absolute;
+  opacity: 0.2;
+  left: -100px;
+  top: 25%;
+
+  @media ${device.tablet} {
+    width: 350px;
+    height: 400px;
+    left: 5%;
+    top: 5%;
+  }
+
+  @media ${device.laptop} {
+    width: 350px;
+    height: 400px;
+    left: 15%;
+    top: 5%;
   }
 `;
 
