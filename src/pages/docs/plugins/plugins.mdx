@@ -34,8 +34,8 @@ plugins: [
         families: ['PT Sans', 'Noto Sans JP'],
       },
     },
-  },
-],
+  }
+]
 ```
 Now we can use these fonts directly in my style-sheets:
 ```css
@@ -44,27 +44,24 @@ font-family: 'PT Sans', sans-serif;
 
 See [Web Font Loader](https://github.com/typekit/webfontloader) for different configurations.
 
-## script-loader
-The `script-loader` plugin allows us to load external scripts and include them in the Direflow Component build.  
+## external-loader
+The `external-loader` plugin allows us to load external resources and include them in the Direflow Component.  
+Paths must consist of either `css` or `js` files.
   
 Example:
 ```javascript
 plugins: [
   {
-    name: 'script-loader',
+    name: 'external-loader',
     options: {
-      externals: [
-        {
-          module: 'jquery',
-          entry: 'https://unpkg.com/jquery@3.2.1/dist/jquery.min.js',
-          global: 'jQuery',
-        },
+      paths: [
+        'https://code.jquery.com/jquery-3.3.1.slim.min.js'
+        'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
       ],
-    },
-  },
-],
+    }
+  }
+]
 ```
-See [html-webpack-externals-plugin](https://github.com/mmiller42/html-webpack-externals-plugin#readme) for different configurations.
 
 ## styled-components
 The `styled-components` plugin allows us to use the `styled-components` module in the Direflow Component.  
@@ -74,8 +71,8 @@ Example:
 plugins: [
   {
     name: 'styled-components'
-  },
-],
+  }
+]
 ```
 Now, just install `styled-components` in your Direflow Component, and you're ready to go.
 ```console
