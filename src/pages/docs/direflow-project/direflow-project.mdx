@@ -15,25 +15,29 @@ It also gives us the ability to add an extra layer of logic on top of all the Di
 This is particularly usefull if we want to share data between the Direflow Components, or have them interact with each other.
 
 ## Setup
+```console
+direflow create -p
+```
+
 When you create a new Direflow Project from `direflow-cli`, you will get a basic setup that looks like this:  
 (TypeScript will have a couple of additional files)  
 
 ```
 .
-├──direflow-components
-|  ├──component-1
-|  ├──component-2
-|  └──component-...
-├──public
-|  ├──index.css
-|  └──index.html
-├──src
-|  └──index.js
-├──.env
-├──direflow-config.js
-├──direflow-webpack.js
-├──package.json
-└──README.md
+├── direflow-components
+│  ├── component-1
+│  ├── component-2
+│  └── component-...
+├── public
+│  ├── index.css
+│  └── index.html
+├── src
+│  └── index.js
+├── .env
+├── direflow-config.js
+├── direflow-webpack.js
+├── package.json
+└── README.md
 ```
 
 ### index.html

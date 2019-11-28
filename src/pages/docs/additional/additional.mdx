@@ -15,7 +15,7 @@ In order to use images or graphic, there are two options:
 - **Use SVG**: You can import SVG-files into the component. React will render these as SVG Elements inside the React App instead of loading them at runtime.
 
 ## Serve
-For development, you can serve the `bundle.js` file.  
+For development, you can serve the bundle file.  
 Simply start the dev-server by using
 ```console
 yarn start
@@ -24,7 +24,32 @@ or
 ```console
 npm start
 ```
-This will serve your file on `http://localhost:3000/bundle.js`
+
+For a Direflow Component, the bundle will be served on: `http://localhost:3000/componentBundle.js`  
+For a Direflow Project, the bundle will be served on: `http://localhost:8000/projectBundle.js`
+
+## Chunking
+When you build a Direflow Component, you can optionally pass in a vendor argument:  
+```console
+yarn build --vendor
+```
+or
+```console
+npm run build --vendor
+```
+
+This will create a build folder containing two bundle-files:
+```
+.
+└── build
+    ├── componentBundle.js
+    └── vendor.js
+```
+
+`componentBundle.js`: Will contain all source-code.  
+`vendor.js`: Will contain all third-party packages.
+
+In order to chunk the Direflow Component in any other way, refer to the file `direflow-webpack.js`, where additional optimization rules can be specified.  
 
 ## Shadow DOM
 The Web Component will run inside a shadow DOM.  
