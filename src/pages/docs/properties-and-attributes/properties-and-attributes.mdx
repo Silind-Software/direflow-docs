@@ -17,7 +17,7 @@ There are two ways that we can do that:
 - Or by setting a property:
   ```javascript
   const component = document.querySelector('awesome-component');
-  component.todos = ['Create component', 'Build  it', 'Deploy it'];
+  component.sampleList = ['Create component', 'Build  it', 'Deploy it'];
   ```
 
 When we build our Web Component in React, we want to receive these properties and attributes as *props* to our root component.  
@@ -25,36 +25,36 @@ When we build our Web Component in React, we want to receive these properties an
 To make sure that properties and attributes of the Web Component is passed down to the React App as props, we need to register the properties and attributes.
 
 To register properties and attributes for the Web Component, go to:
-- `src/componentProperties.ts` (if you are using **TypeScript**)
-- `src/componentProperties.js` (if you are using **JavaScript**)
+- `src/properties.ts` (if you are using **TypeScript**)
+- `src/properties.js` (if you are using **JavaScript**)
 
-Update the object `componentProperties` with the names of your *properties* as the key, and an initial value:
+Update the object `properties` with the names of your *properties* as the key, and an initial value:
 ```javascript
-const componentProperties = {
-  todos: [
-    'Go to src/componentProperties.ts...',
-    'Register properties and attributes...',
-    'Build awesome React Web Component!',
+const properties = {
+  sampleList: [
+    'Create',
+    'Build',
+    'Share',
   ],
 };
 ```
   
-Likewise, update the object `componentAttributes` with the names of your *attributes* as the key, and an initial value:
+Likewise, update the object `attributes` with the names of your *attributes* as the key, and an initial value:
 ```javascript
-const componentAttributes = {
+const attributes = {
   componentTitle: 'Awesome Web Component',
 };
 ```
 
-If you are using **TypeScript**, you will also have to update the interfaces `IComponentProperties` and `IComponentAttributes` to reflect the *types* of the properties and attributes.  
+If you are using **TypeScript**, you will also have to update the interfaces `Iproperties` and `Iattributes` to reflect the *types* of the properties and attributes.  
 Remember - attributes can only consist of primitive types! String, number, boolean, etc.
 
 ```typescript
-interface IComponentProperties {
-  todos: string[];
+interface Iproperties {
+  sampleList: string[];
 }
 
-interface IComponentAttributes {
+interface Iattributes {
   componentTitle: string;
 }
 ```
@@ -62,7 +62,7 @@ interface IComponentAttributes {
 Similarly, if you are using **JavaScript**, you should update the *PropTypes* to reflect the *types* of the properties and attributes.
 ```javascript
 const propTypes = {
-  todos: PropTypes.array,
+  sampleList: PropTypes.array,
   componentTitle: PropTypes.string,
 };
 ```

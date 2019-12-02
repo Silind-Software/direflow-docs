@@ -1,3 +1,3 @@
-# Documentation for Create Tia Widget
+# Documentation for Direflow Components
 
-> [Official page](https://create-tia-widget.com/)
+> [Official page](https://direflow.io/)

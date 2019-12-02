@@ -31,7 +31,7 @@ When you create a new Direflow Component from `direflow-cli`, you will get a bas
 │  │  └── App.test.js
 │  ├── App.css
 │  ├── App.js
-│  ├── componentProperties.js
+│  ├── properties.js
 │  └── index.js
 ├── .env
 ├── direflow-config.js
@@ -62,13 +62,13 @@ module.exports = (config, env) => ({
 });
 ```
 
-### componentProperties.js
+### properties.js
 The `src` folder will look more or less identical to the one you get when using [create-react-app](https://github.com/facebook/create-react-app).  
 There are a couple of differences.  
   
 The `index.js` file will look different since we are using `DireflowComponent` to render a Web Component, instead of `ReactDOM` to mount our application to the DOM.  
   
-You will also find a file called `componentProperties.js`.  
+You will also find a file called `properties.js`.  
 This will is used to register attributes and properties that you would want your component to listen and react to.  
 Read more about [properties and attributes](/properties-and-attributes).
 
