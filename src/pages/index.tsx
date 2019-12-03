@@ -1,5 +1,4 @@
 import React from 'react';
-import AppHeader from '../components/AppHeader/AppHeader';
 import Jumbotron from '../components/Jumbotron/Jumbotron';
 import CodeBox from '../components/CodeBox/CodeBox';
 import { Section } from '../styles/MainStyles';
@@ -12,7 +11,6 @@ import '../styles/main.css';
 const IndexPage = () => {
   return (
     <>
-      <AppHeader />
       <Header />
       <Jumbotron />
       <Section>

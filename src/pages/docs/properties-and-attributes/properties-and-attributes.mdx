@@ -17,7 +17,11 @@ There are two ways that we can do that:
 - Or by setting a property:
   ```javascript
   const component = document.querySelector('awesome-component');
-  component.sampleList = ['Create component', 'Build  it', 'Deploy it'];
+  component.sampleList: [
+    'Create with React',
+    'Build as Web Component',
+    'Use it anywhere!',
+  ],
   ```
 
 When we build our Web Component in React, we want to receive these properties and attributes as *props* to our root component.  
@@ -32,9 +36,9 @@ Update the object `properties` with the names of your *properties* as the key, a
 ```javascript
 const properties = {
   sampleList: [
-    'Create',
-    'Build',
-    'Share',
+    'Create with React',
+    'Build as Web Component',
+    'Use it anywhere!',
   ],
 };
 ```
@@ -50,11 +54,11 @@ If you are using **TypeScript**, you will also have to update the interfaces `Ip
 Remember - attributes can only consist of primitive types! String, number, boolean, etc.
 
 ```typescript
-interface Iproperties {
+interface IProperties {
   sampleList: string[];
 }
 
-interface Iattributes {
+interface IAttributes {
   componentTitle: string;
 }
 ```
