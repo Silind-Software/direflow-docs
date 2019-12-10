@@ -55,12 +55,16 @@ In order to chunk the Direflow Component in any other way, refer to the file `di
 The Web Component will run inside a shadow DOM.  
 However, sometimes that's not really what we want.  
   
-In order to disable the shadow-root entirely, simply pass in an option to the *render* method of ReactWebComponent:
+In order to disable the shadow-root entirely, simply pass in an option as an argument when instantiating DireflowComponent.
 - Go to *index.tsx* or *index.js* inside the *src* folder
-- Pass the option `{ shadow: false }` as the third argument of the *render* method:
-  ```javascript
-  ReactWebComponent.render(App, 'awesome-component', { shadow: false });
-  ```
+- Pass the option `{ shadow: false }` as an argument when instantiating DireflowComponent:
+```javascript
+const direflowComponent = new DireflowComponent({ shadow: true });
+
+direflowComponent.setAttributes(attributes);
+direflowComponent.setProperties(properties);
+direflowComponent.render(App, 'awesome-component');
+```
 
 ## IE 11 Support
 In order to support IE 11, you will need to import the necessary polyfills.  
@@ -86,9 +90,11 @@ import DireflowComponent from 'direflow-component';
 import { attributes, properties } from './properties';
 import App from './App';
 
-DireflowComponent.setAttributes(attributes);
-DireflowComponent.setProperties(properties);
-DireflowComponent.render(App, 'awesome-component');
+const direflowComponent = new DireflowComponent();
+
+direflowComponent.setAttributes(attributes);
+direflowComponent.setProperties(properties);
+direflowComponent.render(App, 'awesome-component');
 ```
 
 If you want to use IE 11 during development, add 'IE 11' to `browserlist` under `development` in `package.json`
