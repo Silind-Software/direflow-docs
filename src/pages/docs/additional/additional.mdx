@@ -25,11 +25,10 @@ or
 npm start
 ```
 
-For a Direflow Component, the bundle will be served on: `http://localhost:3000/componentBundle.js`  
-For a Direflow Project, the bundle will be served on: `http://localhost:8000/projectBundle.js`
+The bundle will be served on: `http://localhost:3000/direflowBundle.js`  
 
 ## Chunking
-When you build a Direflow Component, you can optionally pass in a vendor argument:  
+When you build your Direflow Components, you can optionally pass in a vendor argument:  
 ```console
 yarn build --vendor
 ```
@@ -42,14 +41,14 @@ This will create a build folder containing two bundle-files:
 ```
 .
 └── build
-    ├── componentBundle.js
+    ├── direflowBundle.js
     └── vendor.js
 ```
 
-`componentBundle.js`: Will contain all source-code.  
+`direflowBundle.js`: Will contain all source-code.  
 `vendor.js`: Will contain all third-party packages.
 
-In order to chunk the Direflow Component in any other way, refer to the file `direflow-webpack.js`, where additional optimization rules can be specified.  
+In order to chunk your Direflow Components in any other way, refer to the file `direflow-webpack.js`, where additional optimization rules can be specified.  
 
 ## Shadow DOM
 The Web Component will run inside a shadow DOM.  
@@ -88,7 +87,7 @@ import 'proxy-polyfill';
 
 import DireflowComponent from 'direflow-component';
 import { attributes, properties } from './properties';
-import App from './App';
+import App from './direflow-component/App';
 
 const direflowComponent = new DireflowComponent();
 

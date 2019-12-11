@@ -67,6 +67,18 @@ const propTypes = {
 };
 ```
 
+## Adding to the Web Component
+In order to add the properties and attributes to the Web Component, we use the `setAttribute` and `setProperties` methods on the `DireflowComponent` instance in the `index.js` file.  
+However, this is fully optional. If the Web Component does not need either attributes or properties, calling these methods can simply be let out.  
+
+```javascript
+import DireflowComponent from 'direflow-component';
+import { attributes, properties } from './properties';
+
+direflowComponent.setAttributes(attributes);
+direflowComponent.setProperties(properties);
+```
+
 <span style="display: flex; justify-content: center">
   <Link to='/events-and-styles'>
     <Button>→ Events and styles</Button>

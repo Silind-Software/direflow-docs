@@ -15,7 +15,7 @@ const CodeBox: FC = () => {
         <CodeLine text='direflow create -c' symbol='λ' speed={100} start={0} firstLetter={500} />
         <Space theme={{ height: '20' }} />
         <CodeLine
-          preText='Choose a name for your Direflow Component: '
+          preText='Choose a name for your Direflow Setup: '
           suggestion='(awesome-component)'
           text='awesome-component'
           symbol='?'
@@ -41,14 +41,14 @@ const CodeBox: FC = () => {
         />
         <CodeBlock
           textPrimary={`
-  Your Direflow Component is ready!
+  Your Direflow Setup is ready!
   To get started:
 
     cd awesome-component
     yarn install
     yarn start
 
-  The Direflow Component will be running at: `}
+  The Direflow Setup will be running at: `}
           textSecondary='localhost:3000'
           start={13000}
         />
