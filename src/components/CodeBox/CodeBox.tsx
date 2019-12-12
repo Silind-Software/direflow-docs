@@ -12,7 +12,7 @@ const CodeBox: FC = () => {
         <Dots />
       </DotLine>
       <CodeContainer>
-        <CodeLine text='direflow create -c' symbol='λ' speed={100} start={0} firstLetter={500} />
+        <CodeLine text='direflow create' symbol='λ' speed={100} start={0} firstLetter={500} />
         <Space theme={{ height: '20' }} />
         <CodeLine
           preText='Choose a name for your Direflow Setup: '
@@ -24,7 +24,7 @@ const CodeBox: FC = () => {
           firstLetter={4500}
         />
         <CodeLine
-          preText='Give your component a description (optional): '
+          preText='Give your Direflow Setup a description (optional): '
           text='This component is awesome!'
           speed={75}
           start={7500}
