@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { mainFont, center, logoFont } from '../../../styles/Mixins';
 import { device } from '../../../styles/Device';
 import logo from '../../../images/logo.svg';
+import githubIcon from '../../../images/github.svg';
+import twitterIcon from '../../../images/twitter.svg';
 
 export const HeaderContainer = styled.div`
   width: 100%;
@@ -60,14 +62,35 @@ export const Logo = styled.div`
   }
 `;
 
-export const BadgeContainer = styled.div`
-  display: none !important;
+export const IconContainer = styled.div`
   ${center}
-  & > * {
-    margin-right: 10px;
-  }
+  padding: 0 10px;
+`;
+
+export const Icon = styled.a`
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+  color: #4B6A97;
+  opacity: 0.7;
+  transition: 0.3s;
+  cursor: pointer;
 
   @media ${device.tablet} {
-    display: block !important;
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
   }
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const TwitterIcon = styled(Icon)`
+  background-image: url(${twitterIcon});
+`;
+
+export const GitHubIcon = styled(Icon)`
+  background-image: url(${githubIcon});
 `;
