@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { codeFont, noSelect } from '../../styles/Mixins';
-import dots from '../../images/dots.svg';
 import { device } from '../../styles/Device';
+import dots from '../../images/dots.svg';
 
 export const CodeBoxContainer = styled.div`
   width: 100%;
@@ -25,7 +25,7 @@ export const CodeBoxContainer = styled.div`
 
   @media ${device.desktop} {
     width: 850px;
-    height: 470px;
+    height: 440px;
   }
 `;
 
@@ -45,7 +45,7 @@ export const Dots = styled.div`
 
 export const CodeContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100% - 30px);
   padding: 15px;
   box-sizing: border-box;
   background-color: #151A22;
@@ -53,15 +53,15 @@ export const CodeContainer = styled.div`
   ${codeFont}
 
   @media ${device.tablet} {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   @media ${device.laptop} {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   @media ${device.desktop} {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
@@ -71,6 +71,11 @@ export const CodeLineContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 2.5px 0;
+
+  & > * {
+    display: flex;
+    align-items: center;
+  }
 
   & div {
     display: flex;
@@ -107,6 +112,11 @@ export const CodeQuestionContainer = styled.div`
   padding: 2.5px 0;
   flex-direction: column;
 
+  & > * {
+    display: flex;
+    align-items: center;
+  }
+
   & * {
     margin: 1px 0;
   }
@@ -128,6 +138,8 @@ export const CodeQuestionContainer = styled.div`
   }
 
   & pre {
+    display: flex;
+    align-items: center;
     color: white;
     font-weight: bold;
     margin: 0;
@@ -136,7 +148,7 @@ export const CodeQuestionContainer = styled.div`
   & i {
     font-style: normal;
     color: #686f7a;
-    margin: 0 0 5px 10px;
+    margin-left: 10px;
   }
 
   & s {
@@ -172,11 +184,11 @@ export const Cursor = styled.div`
   @media ${device.tablet} {
     height: 16px;
   }
-  
+
   @media ${device.laptop} {
     height: 18px;
   }
-  
+
   @media ${device.desktop} {
     height: 20px;
   }
