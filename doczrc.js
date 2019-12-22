@@ -5,8 +5,9 @@ export default {
   menu: [
     'Introduction',
     'Get started',
-    'Properties and attributes',
-    'Events and styles',
+    'Properties',
+    'Events',
+    'Styling',
     'Plugins',
     'Additional',
     'Contributing'

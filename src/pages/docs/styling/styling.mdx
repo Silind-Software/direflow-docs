@@ -1,49 +1,13 @@
 ---
-name: 'Events and styles'
-route: '/events-and-styles'
+name: 'Styling'
+route: '/styling'
 edit: false
 ---
 
 import { Link } from '@reach/router';
 import { Button } from '../../../components/Jumbotron/Styles';
 
-## Events
-One thing is providing the Web Component with data through properties and attributes - but we also want the Web Component to be able to fire events that we can listen to.  
-  
-In order to dispatch events that can be listened to from the Web Component, use the `EventContext`.  
-For example - if you want to dispatch a custom event 'my-event' that is triggered onClick, all you have to do is:  
-```jsx
-import React, { FC, useContext } from 'react';
-import { EventContext } from 'direflow-component';
-
-const App: FC = () => {
-  const dispatch = useContext(EventContext);
-
-  const handleClick = () => {
-    const event = new Event('my-event');
-    dispatch(event);
-  }
-
-  return (
-    <div onClick={handleClick}>Click to dispatch 'my-event'</div>
-  );
-};
-```
-
-Now you can add a listener when you consume the component:
-```html
-<awesome-component></awesome-component>
-```
-
-```javascript
-const component = document.querySelector('awesome-component');
-
-component.addEventListener('my-event', () => {
-  // handle event
-});
-```
-
-## Styles
+## Direflow and styling
 In order to use styles in your components, use the `<Styled>` component, or the `withStyles()` HOC.  
 First import your css-file like this:
 ```typescript
@@ -98,7 +62,7 @@ The main difference between the `<Styled>` component and the `withStyles()` HOC,
   
 The `withStyles()` will add an extra `<div>` element around the content that it wraps, and inject all styles into this.
 
-### Styling alternatives
+## Styling alternatives
 
 #### Sass / scss
 If you want to use sass instead of regular css, you can simply rename your files to `.scss` instead of `css`.  

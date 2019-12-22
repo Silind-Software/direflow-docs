@@ -1,0 +1,76 @@
+---
+name: 'Properties'
+route: '/properties'
+edit: false
+---
+
+import { Link } from '@reach/router';
+import { Button } from '../../../components/Jumbotron/Styles';
+
+## Properties and attributes
+One of the cool thing about Web Components is that we can pass in data that the Web Component can use.  
+There are two ways that we can do that:
+- By setting an attribute:
+  ```html
+  <awesome-component componentTitle="New Title"></awesome-component>
+  ```
+- Or by setting a property:
+  ```javascript
+  const component = document.querySelector('awesome-component');
+  component.sampleList = ['Create', 'Build', 'Use'],
+  ```
+
+When we build our Web Component in React, we want to receive these properties and attributes as *props* to our root component.  
+  
+To make sure that properties and attributes of the Web Component are passed down to the React App as props, we need to provide Direflow with a set of properties and their initial values.
+This is done by passing a set of properties to `DireflowComponent` in `index.js` (or `index.tsx`).
+
+```javascript
+const direflowComponent = new DireflowComponent();
+
+direflowComponent.setProperties({
+  componentTitle: 'Cool Component',
+  sampleList: [
+    'Create with React',
+    'Build as Web Component',
+    'Use it anywhere!',
+  ],
+});
+```
+
+The Direflow Component will automatically observe changes in the properties provided, and React will update the UI accordingly.  
+  
+## Reflection of properties
+All properties that are primitive data types (strings, numbers and booleans), will automatically be reflected to attributes.  
+Rich data types such as objects and arrays will be ignored as attributes.  
+
+```html
+// This will update the title
+<awesome-component componentTitle="New Title"></awesome-component>
+
+// This will be ignored
+<awesome-component sampleList="some sample..."></awesome-component>
+```
+
+If both an attribute and property is set with the same name, then the value of the attribute takes precedence.  
+
+```html
+// The Direflow Component will show 'New Title' as the componentTitle
+<awesome-component componentTitle="New Title"></awesome-component>
+
+<script>
+  const component = document.querySelector('awesome-component');
+  
+  // This will be ignored, since componentTitle is set as an attribute
+  component.componentTitle = 'Some other Title';
+</script>
+```
+
+<br />
+<br />
+
+<span style="display: flex; justify-content: center">
+  <Link to='/events-and-styles'>
+    <Button>→ Events and styles</Button>
+  </Link>
+</span>

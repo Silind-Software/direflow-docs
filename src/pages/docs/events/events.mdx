@@ -1,0 +1,53 @@
+---
+name: 'Events'
+route: '/events'
+edit: false
+---
+
+import { Link } from '@reach/router';
+import { Button } from '../../../components/Jumbotron/Styles';
+
+## Events
+One thing is providing the Web Component with data through properties - but we also want the Web Component to be able to fire events that we can listen to.  
+  
+In order to dispatch events that can be listened to from the Web Component, use the `EventContext`.  
+For example - if you want to dispatch a custom event 'my-event' that is triggered onClick, all you have to do is:  
+```jsx
+import React, { FC, useContext } from 'react';
+import { EventContext } from 'direflow-component';
+
+const App: FC = () => {
+  const dispatch = useContext(EventContext);
+
+  const handleClick = () => {
+    const event = new Event('my-event');
+    dispatch(event);
+  }
+
+  return (
+    <div onClick={handleClick}>Click to dispatch 'my-event'</div>
+  );
+};
+```
+
+Now you can add a listener when you consume the component:
+```html
+<awesome-component></awesome-component>
+```
+
+```javascript
+const component = document.querySelector('awesome-component');
+
+component.addEventListener('my-event', () => {
+  // handle event
+});
+```
+
+<br />
+<br />
+
+<span style="display: flex; justify-content: center">
+  <Link to='/styling'>
+    <Button>→ Styling</Button>
+  </Link>
+</span>
