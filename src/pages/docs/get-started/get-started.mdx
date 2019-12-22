@@ -50,14 +50,16 @@ When you create a new Direflow Setup from `direflow-cli`, you will get a basic s
 │  │   ├── test
 │  │   │   └── App.test.js
 │  │   ├── App.css
-│  │   ├── App.js
-│  │   └── properties.js
+│  │   └── App.js
 │  └── index.js
 ├── direflow-config.js
 ├── direflow-webpack.js
 ├── package.json
 └── README.md
 ```
+
+The setup will look close to the one you get when using [create-react-app](https://github.com/facebook/create-react-app).  
+However, there are a couple of differences. 
 
 ### index.html
 The public folder contains an `index.html` file.  
@@ -67,13 +69,9 @@ This is where you consume your Web Component during development.
 In the `index.js` file, the React App is mounted as a Web Component using the `DireflowComponent` instance.  
 ```javascript
 import DireflowComponent from 'direflow-component';
-import { attributes, properties } from './properties';
 import App from './direflow-component/App';
 
 const direflowComponent = new DireflowComponent();
-
-direflowComponent.setAttributes(attributes);
-direflowComponent.setProperties(properties);
 direflowComponent.render(App, 'awesome-component');
 ```
 
@@ -98,19 +96,6 @@ module.exports = (config, env) => ({
 });
 ```
 
-### direflow-component
-This folder contains the React App which will becom the resulting Web Component
-
-### properties.js
-The `src` folder will look more or less identical to the one you get when using [create-react-app](https://github.com/facebook/create-react-app).  
-There are a couple of differences.  
-  
-The `index.js` file will look different since we are using `DireflowComponent` to render a Web Component, instead of `ReactDOM` to mount our application to the DOM.  
-  
-You will also find a file called `properties.js`.  
-This will is used to register attributes and properties that you would want your component to listen and react to.  
-Read more about [properties and attributes](/properties-and-attributes).
-
 ## Multiple Web Components
 As default, the Direflow Setup comes with one Direflow Component out-of-the-box.  
 This component is found in the folder `direflow-component`.  
@@ -120,14 +105,10 @@ Create a new folder next to `direflow-component` and let that contain another Re
 Now simply create a new instance of `DireflowComponent` in the `index.js` file like so:  
 ```javascript
 import DireflowComponent from 'direflow-component';
-import { attributes, properties } from './properties';
 import App from './direflow-component/App';
 import AnotherApp from './another-component/AnotherApp';
 
 const direflowComponent = new DireflowComponent();
-
-direflowComponent.setAttributes(attributes);
-direflowComponent.setProperties(properties);
 direflowComponent.render(App, 'awesome-component');
 
 const anotherComponent = new DireflowComponent();
@@ -144,8 +125,6 @@ direflowComponent.onConnected((component) => {
   // Do something with the component once it's mounted on the DOM.
 });
 
-direflowComponent.setAttributes(attributes);
-direflowComponent.setProperties(properties);
 direflowComponent.render(App, 'awesome-component');
 ```
 

@@ -59,9 +59,6 @@ In order to disable the shadow-root entirely, simply pass in an option as an arg
 - Pass the option `{ shadow: false }` as an argument when instantiating DireflowComponent:
 ```javascript
 const direflowComponent = new DireflowComponent({ shadow: false });
-
-direflowComponent.setAttributes(attributes);
-direflowComponent.setProperties(properties);
 direflowComponent.render(App, 'awesome-component');
 ```
 
@@ -86,13 +83,9 @@ import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only';
 import 'proxy-polyfill';
 
 import DireflowComponent from 'direflow-component';
-import { attributes, properties } from './properties';
 import App from './direflow-component/App';
 
 const direflowComponent = new DireflowComponent();
-
-direflowComponent.setAttributes(attributes);
-direflowComponent.setProperties(properties);
 direflowComponent.render(App, 'awesome-component');
 ```
 

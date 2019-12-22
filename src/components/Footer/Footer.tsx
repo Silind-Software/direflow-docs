@@ -18,6 +18,9 @@ const Footer: FC = () => {
           <br />
           <span>If you have improved Direflow in any way, please create a Pull Request.</span>
           <span>It is greatly appreciated 💜</span>
+          <br />
+          <span>Please let me know if you build something cool with Direflow!</span>
+          <span>It would be awesome to show it here on direflow.io or on GitHub 🤙</span>
         </TextContent>
         <Link to='/contributing'>
           <FooterButton>Contribute</FooterButton>
