@@ -204,7 +204,7 @@ export const BuildBoxImage = styled.div`
 export const BuildBoxBackground = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #62DAFB;
+  background-color: #b7d1ff;
   position: absolute;
   animation: ${fillColorAnimation} 4s infinite;
 `;
@@ -272,7 +272,7 @@ export const ArrowLine = styled.div`
   background-size: 3px 20px;
   margin-top: -20px;
   background-repeat: repeat-y;
-  background-image: linear-gradient(#62DAFB 50%, rgba(255,255,255,0) 0%);
+  background-image: linear-gradient(#ccd7e8 50%, rgba(255,255,255,0) 0%);
   animation: ${dashLineVertiAnimation} 0.3s linear infinite;
 
   @media ${device.tablet} {
@@ -283,7 +283,7 @@ export const ArrowLine = styled.div`
     margin-left: -20px;
     background-size: 20px 5px;
     background-repeat: repeat-x;
-    background-image: linear-gradient(to right, #62DAFB 50%, rgba(255,255,255,0) 0%);
+    background-image: linear-gradient(to right, #ccd7e8 50%, rgba(255,255,255,0) 0%);
   }
 
 `;

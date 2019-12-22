@@ -6,16 +6,19 @@ import { Header } from '../gatsby-theme-docz/components/Header';
 import Footer from '../components/Footer/Footer';
 import HowItWorks from '../components/HowItWorks/HowItWorks';
 import { Headline } from '../components/HowItWorks/Styles';
+import AppHeader from '../components/AppHeader/AppHeader';
 import '../styles/main.css';
+import CodeExample from '../components/CodeExample/CodeExample';
 
 const IndexPage = () => {
   return (
     <>
+      <AppHeader />
       <Header />
       <Jumbotron />
       <Section>
         <Headline>Get started in minutes</Headline>
-        <CodeBox />
+        <CodeExample />
       </Section>
       <Section>
         <Headline>How it works</Headline>
