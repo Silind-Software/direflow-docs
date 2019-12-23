@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import {
   Container,
-  Headline,
   IllustrationContainer,
   IllustrationSection,
   ReactIcon,
