@@ -29,7 +29,7 @@ const fillColorAnimation = keyframes`
   }
   100% {
     opacity: 0;
-    height: 200px;
+    height: 100%;
   }
 `;
 
@@ -95,7 +95,7 @@ export const IllustrationWrapper = styled.div`
 `;
 
 export const IllustrationContainer = styled.div`
-  width: 90vw;
+  width: 50vw;
   display: flex;
   flex-direction: column;
   margin-top: 25px;
@@ -118,7 +118,7 @@ export const IllustrationSection = styled.div`
   width: 100%;
   ${center};
   flex-direction: column;
-  margin-top: 50px;
+  margin: 25px 0;
 
   @media ${device.tablet} {
     margin-top: 0;
@@ -128,10 +128,14 @@ export const IllustrationSection = styled.div`
 
 export const IllustrationContent = styled.div`
   width: 100%;
-  min-height: 250px;
+  min-height: 100px;
   ${center};
   flex-direction: column;
   position: relative;
+
+  @media ${device.tablet} {
+    min-height: 250px;
+  }
 `;
 
 export const IllustrationHeadline = styled.div`
@@ -184,11 +188,15 @@ export const WcIcon = styled(Icon)`
 
 export const BuildBox = styled.div`
   width: 75%;
-  height: 200px;
+  height: 100px;
   position: absolute;
   background-color: white;
   box-shadow: 0 0 30px #5781C2cf;
   ${center};
+
+  @media ${device.tablet} {
+    height: 200px;
+  }
 `;
 
 export const BuildBoxImage = styled.div`
@@ -212,25 +220,31 @@ export const BuildBoxBackground = styled.div`
 export const BuildBoxHeader = styled.div`
   padding: 0 10px;
   box-sizing: border-box;
-  line-height: 35px;
-  height: 35px;
+  line-height: 25px;
+  height: 25px;
   border-radius: 5px;
   background-color: #555;
   z-index: 2;
   position: absolute;
   color: white;
   ${secondaryFont}
-  top: 7.5px;
+  top: -12.5px;
+
+  @media ${device.tablet} {
+    top: 7.5px;
+    height: 35px;
+    line-height: 35px;
+  }
 `;
 
 export const ArrowLineContainer = styled.div`
   width: 3px;
-  height: 100%;
+  height: calc(100% - 25px);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   position: absolute;
-  top: 35px;
+  top: 25px;
   left: 50%;
 
   @media ${device.tablet} {
@@ -269,11 +283,11 @@ export const ArrowLine = styled.div`
   width: 100%;
   height: 115%;
   background-position: right;
-  background-size: 3px 20px;
+  background-size: 3px 10px;
   margin-top: -20px;
   background-repeat: repeat-y;
   background-image: linear-gradient(#ccd7e8 50%, rgba(255,255,255,0) 0%);
-  animation: ${dashLineVertiAnimation} 0.3s linear infinite;
+  animation: ${dashLineVertiAnimation} 0.6s linear infinite;
 
   @media ${device.tablet} {
     width: 115%;
