@@ -239,7 +239,7 @@ export const BuildBoxHeader = styled.div`
 
 export const ArrowLineContainer = styled.div`
   width: 3px;
-  height: calc(100% - 25px);
+  height: calc(100% - 30px);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -284,7 +284,7 @@ export const ArrowLine = styled.div`
   height: 115%;
   background-position: right;
   background-size: 3px 10px;
-  margin-top: -20px;
+  margin-top: -10px;
   background-repeat: repeat-y;
   background-image: linear-gradient(#ccd7e8 50%, rgba(255,255,255,0) 0%);
   animation: ${dashLineVertiAnimation} 0.6s linear infinite;
