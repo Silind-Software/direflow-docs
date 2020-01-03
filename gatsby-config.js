@@ -34,8 +34,8 @@ module.exports = {
       options: {
         name: `Direflow`,
         short_name: `crwc`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#4B6A97`,
+        theme_color: `#4B6A97`,
         display: `minimal-ui`,
         icon: `./src/images/logo.png`,
       },

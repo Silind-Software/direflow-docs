@@ -10,7 +10,7 @@ const DoczHeader: FC = () => {
       </Link>
       <IconContainer>
         <GitHubIcon href='https://github.com/Silind-Software/direflow' target='_blank' />
-        <TwitterIcon href='https://twitter.com/silindsoftware' target='_blank' />
+        <TwitterIcon href='https://twitter.com/direflowjs' target='_blank' />
       </IconContainer>
     </HeaderContainer>
   );
