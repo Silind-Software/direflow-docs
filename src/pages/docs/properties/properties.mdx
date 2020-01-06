@@ -39,38 +39,3 @@ direflowComponent.setProperties({
 ```
 
 The Direflow Component will automatically observe changes in the properties provided, and React will update the UI accordingly.  
-  
-## Reflection of properties
-All properties that are primitive data types (strings, numbers and booleans), will automatically be reflected to attributes.  
-Rich data types such as objects and arrays will be ignored as attributes.  
-
-```html
-// This will update the title
-<awesome-component componentTitle="New Title"></awesome-component>
-
-// This will be ignored
-<awesome-component sampleList="some sample..."></awesome-component>
-```
-
-If both an attribute and property is set with the same name, then the value of the attribute takes precedence.  
-
-```html
-// The Direflow Component will show 'New Title' as the componentTitle
-<awesome-component componentTitle="New Title"></awesome-component>
-
-<script>
-  const component = document.querySelector('awesome-component');
-  
-  // This will be ignored, since componentTitle is set as an attribute
-  component.componentTitle = 'Some other Title';
-</script>
-```
-
-<br />
-<br />
-
-<span style="display: flex; justify-content: center">
-  <Link to='/events'>
-    <Button>→ Events</Button>
-  </Link>
-</span>
