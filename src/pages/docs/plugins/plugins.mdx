@@ -8,8 +8,7 @@ import { Link } from '@reach/router';
 import { Button } from '../../../components/Jumbotron/Styles';
 
 Direflow comes with a set of handy plugins, and more will be added in the future.  
-In order to add a plugin, go to the file `direflow-config.js`  
-Here, we can add plugins to the `plugins` list.  
+When we create a Direflow Component, we can provide a list of plugins in the configuration.
   
 All plugins follow the format
 ```javascript
@@ -62,6 +61,51 @@ plugins: [
   }
 ]
 ```
+
+## icon-loader
+The `icon-loader` plugin allows us to load icon-specific resources.  
+For instance, if we want to use the icon pack from material design.  
+
+Example
+```javascript
+{
+  name: 'icon-loader',
+  options: {
+    packs: ['material-icons']
+  }
+}
+```
+
+## polyfill-loader
+The `polyfill-loader` plugin allows us to take full control over the Web Components polyfills.  
+
+Example:
+```javascript
+{
+  name: 'polyfill-loader',
+  options: {
+    use: {
+      sd: false,
+      ce: true,
+    }
+  }
+}
+```
+This will include the ce-bundle, but exclude the sd-bundle.
+
+We can also specify your own source, if needed:
+```javascript
+{
+  name: 'polyfill-loader',
+  options: {
+    use: {
+      sd: 'https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.4.1/bundles/webcomponents-sd.js',
+      ce: true,
+    }
+  }
+}
+```
+You can read more about the origin of this plugin in [this issue](https://github.com/Silind-Software/direflow/issues/18).
 
 ## styled-components
 The `styled-components` plugin allows us to use the `styled-components` module in the Web Components.  

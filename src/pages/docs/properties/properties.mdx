@@ -28,14 +28,22 @@ This is done by passing a set of properties to `DireflowComponent` in `index.js`
 ```javascript
 const direflowComponent = new DireflowComponent();
 
-direflowComponent.setProperties({
-  componentTitle: 'Cool Component',
+const direflowProperties = {
+  componentTitle: 'Update Component',
   sampleList: [
     'Create with React',
     'Build as Web Component',
     'Use it anywhere!',
   ],
+};
+
+direflowComponent.configure({
+  name: 'update-component',
+  useShadow: true,
+  properties: direflowProperties,
 });
+
+direflowComponent.create(App);
 ```
 
 The Direflow Component will automatically observe changes in the properties provided, and React will update the UI accordingly.  

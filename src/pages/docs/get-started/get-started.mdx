@@ -52,7 +52,6 @@ When you create a new Direflow Setup from `direflow-cli`, you will get a basic s
 │  │   ├── App.css
 │  │   └── App.js
 │  └── index.js
-├── direflow-config.js
 ├── direflow-webpack.js
 ├── package.json
 └── README.md
@@ -72,16 +71,15 @@ import DireflowComponent from 'direflow-component';
 import App from './direflow-component/App';
 
 const direflowComponent = new DireflowComponent();
-direflowComponent.render(App, 'awesome-component');
+direflowComponent.configure({ name: 'awesome-component', useShadow: true });
+direflowComponent.create(App);
 ```
 
 In this file you can configure your Web Component.  
-As a default, the Web Component will be given the same name as your Direflow Setup, but you can easily rename it in the `render()` method.
-
-### direflow-config.js
-This file will contain some meta-data about your Direflow Setup.  
-In this file, we can also add different plugins to the setup.  
-See more under [plugins](/plugins).
+As a default, the Web Component will be given the same name as your Direflow Setup, but you can easily rename it in the `configure()` method.
+  
+The configuration object can also contain _properties_ and _plugins_.  
+See more under [properties](/properties) and [plugins](/plugins).
 
 ### direflow-webpack.js
 This file gives you complete control over the Webpack setup.  
@@ -109,23 +107,37 @@ import App from './direflow-component/App';
 import AnotherApp from './another-component/AnotherApp';
 
 const direflowComponent = new DireflowComponent();
-direflowComponent.render(App, 'awesome-component');
+direflowComponent.configure({ name: 'awesome-component', useShadow: true });
+direflowComponent.create(App);
 
 const anotherComponent = new DireflowComponent();
-anotherComponent.render(AnotherApp, 'another-component');
+anotherComponent.configure({ name: 'another-component', useShadow: true });
+anotherComponent.create(AnotherApp);
 ```
 
-## Callback when Web Component connects
-Some times we want to provide a callback function that is called whenever our Web Component is mounted on the DOM.  
-You can provide a callback function to the `DireflowComponent` like this:  
+## Create returns a promise
+Sometimes we want to access our Web Component whenever it is mounted on the DOM.  
+The `create()` method returns a promise with a reference to the DOM element, when resolved.
 ```javascript
 const direflowComponent = new DireflowComponent();
+direflowComponent.configure({ name: 'awesome-component', useShadow: true });
+direflowComponent.create(App)
+  .then((compnent: HTMLElement) => {
+    // Do something with the component once it's mounted on the DOM.
+  });
+```
 
-direflowComponent.onConnected((component) => {
+We can also use _await_ if we're inside an async function
+```javascript
+const direflowComponent = new DireflowComponent();
+direflowComponent.configure({ name: 'awesome-component', useShadow: true });
+
+const createComponent = async () => {
+  const component = await direflowComponent.create(App);
   // Do something with the component once it's mounted on the DOM.
-});
+}
 
-direflowComponent.render(App, 'awesome-component');
+createComponent();
 ```
 
 ## Developing
