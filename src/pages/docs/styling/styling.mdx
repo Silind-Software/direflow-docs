@@ -61,6 +61,24 @@ export default withStyles(styles)(App);
 The main difference between the `<Styled>` component and the `withStyles()` HOC, is that the `<Styled>` component will inject all styles just below the html element that it wraps.  
   
 The `withStyles()` will add an extra `<div>` element around the content that it wraps, and inject all styles into this.
+  
+Both the `<Styled>` component and the `withStyles()` HOC can take a list of styles as well.
+
+```jsx
+import styles from './App.css';
+import otherStyles from './OtherStyles.css';
+
+<Styled styles={[styles, otherStyles]} >
+...
+```
+
+```jsx
+import styles from './App.css';
+import otherStyles from './OtherStyles.css';
+
+...
+export default withStyles([styles, otherStyles])(App);
+```
 
 ## Styling alternatives
 
