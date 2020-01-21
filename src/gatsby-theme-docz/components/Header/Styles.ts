@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { mainFont, center, logoFont } from '../../../styles/Mixins';
+import { center, logoFont } from '../../../styles/Mixins';
 import { device } from '../../../styles/Device';
 import logo from '../../../images/logo.svg';
 import githubIcon from '../../../images/github.svg';
 import twitterIcon from '../../../images/twitter.svg';
+import slackIcon from '../../../images/slack.svg';
 
 export const HeaderContainer = styled.div`
   width: 100%;
@@ -93,4 +94,8 @@ export const TwitterIcon = styled(Icon)`
 
 export const GitHubIcon = styled(Icon)`
   background-image: url(${githubIcon});
+`;
+
+export const SlackIcon = styled(Icon)`
+  background-image: url(${slackIcon});
 `;
