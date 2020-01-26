@@ -99,8 +99,9 @@ We can also specify your own source, if needed:
   name: 'polyfill-loader',
   options: {
     use: {
-      sd: 'https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.4.1/bundles/webcomponents-sd.js',
-      ce: true,
+      sd: 'https://cdn.your.own.source/webcomponents-sd.js',
+      ce: 'https://cdn.your.own.source/webcomponents-ce.js',
+      adapter: 'https://cdn.your.own.source/custom-elements-es5-adapter.js'
     }
   }
 }

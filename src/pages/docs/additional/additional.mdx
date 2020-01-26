@@ -50,6 +50,19 @@ This will create a build folder containing two bundle-files:
 
 In order to chunk your Direflow Components in any other way, refer to the file `direflow-webpack.js`, where additional optimization rules can be specified.  
 
+## Renaming bundle-files
+You have the option to rename the bundlefiles.
+Go the `direflow-webpack.js` and pass in the desired filename as and option.
+  
+You can rename the main bundle file, the vendor bundle file or both.
+
+```javascript
+module.exports = (config, env) => ({
+  ...webpackConfig(config, env, { filename: 'myBundle.js', chunkFilename: 'thirdParty.js' });
+});
+```
+
+
 ## Shadow DOM
 The Web Component will run inside a shadow DOM.  
 However, sometimes that's not really what we want.  
