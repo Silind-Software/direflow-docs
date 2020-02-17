@@ -33,7 +33,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Direflow`,
-        short_name: `crwc`,
+        short_name: `direflow`,
         background_color: `#4B6A97`,
         theme_color: `#4B6A97`,
         display: `minimal-ui`,
