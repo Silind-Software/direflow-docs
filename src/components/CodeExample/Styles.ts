@@ -24,8 +24,8 @@ export const CodeBlock = styled.div`
   border-radius: 10px;
   padding: 10px 12px;
   margin: 12px 0;
-  background-color: #4b6997bf;
-  color: white;
+  background-color: #c0c9d3;
+  color: #304360;
   ${codeFont}
   display: flex;
   justify-content: space-between;

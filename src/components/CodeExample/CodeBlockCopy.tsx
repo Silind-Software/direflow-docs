@@ -21,7 +21,7 @@ const CodeBlockCopy: FC<IProps> = (props: IProps) => {
 
   const isActiveStyle =
     props.activeSnippet === props.snippet
-      ? { border: '3px solid #4B6A97' }
+      ? { border: '3px solid #9eadbf' }
       : { border: '3px solid #f1f5fa' };
 
   return (

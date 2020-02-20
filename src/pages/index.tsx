@@ -7,6 +7,7 @@ import HowItWorks from '../components/HowItWorks/HowItWorks';
 import { Headline } from '../components/HowItWorks/Styles';
 import AppHeader from '../components/AppHeader/AppHeader';
 import CodeExample from '../components/CodeExample/CodeExample';
+import UseExample from '../components/UseExample/UseExample';
 import '../styles/main.css';
 
 const IndexPage = () => {
@@ -15,6 +16,10 @@ const IndexPage = () => {
       <AppHeader />
       <Header />
       <Jumbotron />
+      <Section>
+        <Headline>Perfect for</Headline>
+        <UseExample />
+      </Section>
       <Section>
         <Headline>Get started in minutes</Headline>
         <CodeExample />
