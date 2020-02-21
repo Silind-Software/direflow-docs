@@ -90,7 +90,7 @@ const UseExample: FC = () => {
         <SubText>Micro Front Ends</SubText>
         <ExampleContainer>
           <crypto-cart fullWidth='true' ref={cartRef} />
-          <crypto-items fullWidth='true' ref={itemsRef} />
+          <crypto-items fullWidth='true' ref={itemsRef} componentTitle='Items' />
         </ExampleContainer>
       </Column>
       <Column>

@@ -23,7 +23,7 @@ export const Container = styled.div`
 
 export const Column = styled.div`
   width: 50%;
-  min-width: 380px;
+  min-width: 375px;
   height: 100%;
   ${center}
   justify-content: flex-start;
