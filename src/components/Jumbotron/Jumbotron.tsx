@@ -30,7 +30,7 @@ const Jumbotron: FC = () => {
           Create fast, performant, native <Highligt>Web Components</Highligt> using <Highligt>React</Highligt>.
         </Subtext>
         <ButtonContainer>
-          <Link to='/introduction'>
+          <Link to='/get-started'>
             <Button>→ Get Started</Button>
           </Link>
           <a href='https://github.com/Silind-Software/direflow' target='_blank'>
