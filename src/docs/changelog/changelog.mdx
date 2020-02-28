@@ -1,0 +1,122 @@
+---
+name: 'Changelog'
+route: '/changelog'
+edit: false
+---
+
+<!--
+
+Changelog is based on the following format and guidelines:
+https://keepachangelog.com/en/1.0.0/
+
+-->
+
+# Changelog
+
+## Unreleased (4.x)
+
+#### Added
+- Optionally disable scoped styled [#52](https://github.com/Silind-Software/direflow/issues/52)
+- Spli Direflow Components into multiple bundles [#53](https://github.com/Silind-Software/direflow/issues/53)
+- Create NPM-ready boilerplate [#56](https://github.com/Silind-Software/direflow/issues/56)
+- Configure Direflow Components using `defaultProps` and `@DireflowConfiguration` decorator [#57](https://github.com/Silind-Software/direflow/issues/57)
+- Option to use `async` when using `external-loader` plugin [#58](https://github.com/Silind-Software/direflow/issues/58)
+
+#### Changed
+- New structure for configuring a Direflow Component
+
+## 3.x
+
+### 3.3
+_2020-02-28_
+
+#### Added
+- Cypress test suits [#48](https://github.com/Silind-Software/direflow/issues/48)
+
+#### Changed
+- React bundles are lazyloaded [#30](https://github.com/Silind-Software/direflow/issues/30)
+
+### 3.2
+_2020-01-22_
+
+#### Added
+- Add a custom filename for bundle in webpac.direflow.js [#47](https://github.com/Silind-Software/direflow/pull/47)
+- Choosing .eslint while creating a new setup [#45](https://github.com/Silind-Software/direflow/pull/45)
+
+#### Removed
+- Option to create a 'Direflow Project'
+
+### 3.1
+_2020-01-19_
+
+#### Added
+- Using slotted as part of the Web Component standard
+
+### 3.0
+_2020-01-12_
+
+#### Added
+- Configurable polyfills [#18](https://github.com/Silind-Software/direflow/issues/18)
+- Support for `.sass` files
+- New plugin: `polyfill-loader`
+
+#### Changed
+- New structure for configuring a Direflow Component
+- Web Components polyfills are lazyloaded
+
+#### Fixed
+- Property with value `false` getting ignored
+
+<br />
+
+## 2.x
+
+### 2.2
+_2020-01-06_
+
+#### Added
+- New custom implementation of handling event retargeting  
+  Fixes a range of common bugs with event propagation and support for IE
+- Properties take precedence over attributes if both are set [#31](https://github.com/Silind-Software/direflow/pull/31)
+
+#### Fixed
+- Import modules from without the `./src` folder [#24](https://github.com/Silind-Software/direflow/issues/24)
+- Issue with reattaching Shadow Root [#27](https://github.com/Silind-Software/direflow/issues/27)
+- Multiple components added to the same shadow DOM [#28](https://github.com/Silind-Software/direflow/issues/28)
+
+### 2.1
+_2019-12-22_
+
+#### Changed
+- Both attributes and properties are now derived from the same object  
+  The separation is made implicit - the `attribute` field and `setAttribute()` method  
+  can now be omitted on the Direflow configuration
+
+### 2.0
+_2019-12-14_
+
+#### Added
+- Creating multiple custom elements from the same setup
+
+#### Changed
+- Registration of properties and attributes becomes optional
+
+#### Deprecated
+- Option to create a 'Direflow Project'
+
+#### Fixed
+- Multiple Web Components referenes the same property object ([#12](https://github.com/Silind-Software/direflow/issues/12))
+
+<br />
+
+## 1.x
+
+### 1.1
+_2019-12-03_
+
+#### Added
+- Support for Styled Components
+- Using `yarn build --vendor` to chunk build into a `vender.js` and a `direflowBundle.js` file
+
+## Initial commit
+_2019-11-01_

@@ -23,7 +23,7 @@ This part is simple - just edit the part of the documentation that you whish to 
 #### Adding new documentation pages
 In order to add new documentation pages, follow this procedure:
 1. Create a new folder under `src/pages/docs` reflecting the name of your documentation page.
-2. Create an mdx-file under this new folder with the same name. `src/pages/docs/new-doc/new-doc.mdx`.
+2. Create an mdx-file under this new folder with the same name. `src/docs/new-doc/new-doc.mdx`.
 3. Make sure that the mdx-file contains the following front matter:  
    ```mdx
     ---
@@ -36,7 +36,7 @@ In order to add new documentation pages, follow this procedure:
    Import the following on the top of the page:
    ```jsx
    import { Link } from '@reach/router';
-   import { Button } from '../../../components/Jumbotron/Styles';
+   import { Button } from '../../components/Jumbotron/Styles';
    ```
    Add the button at the end of the page
    ```jsx
@@ -46,6 +46,7 @@ In order to add new documentation pages, follow this procedure:
       </Link>
    </span>
    ```
+   Make sure to replace 'nex-docs' with the route to the next page in the menu.
 5. Lastly, go to the file `doczrc.js` and add a menu item for your new documentation page:  
    This should be the same as the 'name' property in the front matter.
    ```javascript

@@ -5,9 +5,9 @@ import { Link } from '@reach/router';
 const DoczHeader: FC = () => {
   return (
     <HeaderContainer>
-      <Link to='/'>
+      <a href='https://direflow.io'>
         <Logo /> <div>Direflow</div>
-      </Link>
+      </a>
       <IconContainer>
         <GitHubIcon href='https://github.com/Silind-Software/direflow' target='_blank' />
         <TwitterIcon href='https://twitter.com/direflowjs' target='_blank' />

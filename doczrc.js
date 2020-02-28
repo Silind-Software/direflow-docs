@@ -1,6 +1,6 @@
 export default {
   title: 'Direflow',
-  files: 'src/pages/docs/**/*.{md,markdown,mdx}',
+  files: 'src/docs/**/*.{md,markdown,mdx}',
   repository: false,
   menu: [
     'Introduction',
@@ -10,6 +10,7 @@ export default {
     'Styling',
     'Plugins',
     'Additional',
-    'Contributing'
+    'Contributing',
+    'Changelog'
   ],
 };

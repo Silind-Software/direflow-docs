@@ -23,7 +23,7 @@ const Footer: FC = () => {
         </Link>
       </FooterContent>
       <BottomLine>
-        <a href='https://silind.com' target='_blank'>
+        <a href='https://github.com/Silind-Software' target='_blank'>
           Silind Software
         </a>
       </BottomLine>
