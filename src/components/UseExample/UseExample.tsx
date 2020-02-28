@@ -1,7 +1,7 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
+import useScrollDisplay from '@silind/use-scroll-display';
 import { Column, Container, ExampleContainer } from './Styles';
 import { SubText } from '../HowItWorks/Styles';
-import useAnimateDisplay from '../../hooks/useAnimateDisplay';
 
 const UseExample: FC = () => {
   const [cartList, setCartList] = useState<any[]>([
@@ -40,8 +40,8 @@ const UseExample: FC = () => {
   const cartRef = useRef(null);
   const itemsRef = useRef(null);
 
-  const widgetsExampleRef = useAnimateDisplay();
-  const uiLibraryExampleRef = useAnimateDisplay();
+  const widgetsExampleRef = useScrollDisplay();
+  const uiLibraryExampleRef = useScrollDisplay();
 
   useEffect(() => {
     if (!cartRef.current) {

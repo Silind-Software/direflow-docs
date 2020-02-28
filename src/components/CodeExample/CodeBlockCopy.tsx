@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
+import useScrollDisplay from '@silind/use-scroll-display';
 import { CodeBlock, CopyButton } from './Styles';
-import useAnimateDisplay from '../../hooks/useAnimateDisplay';
 
 interface IProps {
   snippet: string;
@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const CodeBlockCopy: FC<IProps> = (props: IProps) => {
-  const codeBlockRef = useAnimateDisplay();
+  const codeBlockRef = useScrollDisplay();
 
   const copyToClipboard = () => {
     const el = document.createElement('textarea');

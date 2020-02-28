@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import './style.css';
 
-const useAnimateDisplay = (offset = 200) => {
+const useScrollDisplay = (offset = 200) => {
   const ref = useRef<any>(null);
   const [showElement, setShowElement] = useState<boolean>(false);
+  const [showInitial, setShowInitial] = useState<boolean>(false);
 
   const handeScrollChange = () => {
     if (showElement) {
@@ -11,6 +12,10 @@ const useAnimateDisplay = (offset = 200) => {
       return;
     }
 
+    calculatePosition();
+  };
+
+  const calculatePosition = (options?: { initial: boolean }) => {
     if (!ref.current) {
       return;
     }
@@ -21,6 +26,10 @@ const useAnimateDisplay = (offset = 200) => {
     if (top - window.innerHeight < -offset) {
       setShowElement(true);
     }
+
+    if (options?.initial) {
+      setShowInitial(true);
+    }
   };
 
   useEffect(() => {
@@ -28,9 +37,18 @@ const useAnimateDisplay = (offset = 200) => {
       return;
     }
 
-    ref.current.classList.add('animatable');
-    handeScrollChange();
+    calculatePosition({ initial: true });
   }, [ref.current]);
+
+  useEffect(() => {
+    if (!showInitial) {
+      return;
+    }
+
+    if (!showElement) {
+      ref.current.classList.add('animatable');
+    }
+  }, [showInitial]);
 
   useEffect(() => {
     if (!showElement || !ref.current) {
@@ -52,4 +70,4 @@ const useAnimateDisplay = (offset = 200) => {
   return ref;
 };
 
-export default useAnimateDisplay;
+export default useScrollDisplay;

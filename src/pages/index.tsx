@@ -1,4 +1,5 @@
 import React from 'react';
+import useScrollDisplay from '@silind/use-scroll-display';
 import Jumbotron from '../components/Jumbotron/Jumbotron';
 import { Section } from '../styles/MainStyles';
 import { Header } from '../gatsby-theme-docz/components/Header';
@@ -8,12 +9,11 @@ import { Headline } from '../components/HowItWorks/Styles';
 import AppHeader from '../components/AppHeader/AppHeader';
 import CodeExample from '../components/CodeExample/CodeExample';
 import UseExample from '../components/UseExample/UseExample';
-import useAnimateDisplay from '../hooks/useAnimateDisplay';
 import '../styles/main.css';
 
 const IndexPage = () => {
-  const perfectForRef = useAnimateDisplay();
-  const getStartedRef = useAnimateDisplay();
+  const perfectForRef = useScrollDisplay();
+  const getStartedRef = useScrollDisplay();
 
   return (
     <>
@@ -21,16 +21,16 @@ const IndexPage = () => {
       <Header />
       <Jumbotron />
       <Section>
+        <Headline>How it works</Headline>
+        <HowItWorks />
+      </Section>
+      <Section>
         <Headline ref={perfectForRef}>Perfect for</Headline>
         <UseExample />
       </Section>
       <Section>
         <Headline ref={getStartedRef}>Get started in minutes</Headline>
         <CodeExample />
-      </Section>
-      <Section>
-        <Headline>How it works</Headline>
-        <HowItWorks />
       </Section>
       <Footer />
     </>

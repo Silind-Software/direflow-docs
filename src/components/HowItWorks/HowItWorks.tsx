@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import useScrollDisplay from '@silind/use-scroll-display';
 import {
   Container,
   IllustrationContainer,
@@ -19,15 +20,14 @@ import {
 } from './Styles';
 import { Link } from '@reach/router';
 import { Button } from '../Jumbotron/Styles';
-import useAnimateDisplay from '../../hooks/useAnimateDisplay';
 
 const HowItWorks: FC = () => {
-  const illustrationOneRef = useAnimateDisplay();
-  const illustrationTwoRef = useAnimateDisplay();
-  const illustrationThreeRef = useAnimateDisplay();
+  const illustrationOneRef = useScrollDisplay();
+  const illustrationTwoRef = useScrollDisplay();
+  const illustrationThreeRef = useScrollDisplay();
 
-  const linesOneRef = useAnimateDisplay();
-  const linesTwoRef = useAnimateDisplay();
+  const linesOneRef = useScrollDisplay();
+  const linesTwoRef = useScrollDisplay();
 
   return (
     <Container>

@@ -3,7 +3,6 @@ export default {
   files: 'src/docs/**/*.{md,markdown,mdx}',
   repository: false,
   menu: [
-    'Introduction',
     'Get started',
     'Properties',
     'Events',

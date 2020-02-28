@@ -6,6 +6,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.4.5",
     "@mdx-js/react": "^1.4.5",
+    "@silind/use-scroll-display": "^1.0.0",
     "@types/react-helmet": "^5.0.11",
     "@types/styled-components": "^4.1.19",
     "babel-plugin-styled-components": "^1.10.6",
