@@ -19,14 +19,22 @@ import {
 } from './Styles';
 import { Link } from '@reach/router';
 import { Button } from '../Jumbotron/Styles';
+import useAnimateDisplay from '../../hooks/useAnimateDisplay';
 
 const HowItWorks: FC = () => {
+  const illustrationOneRef = useAnimateDisplay();
+  const illustrationTwoRef = useAnimateDisplay();
+  const illustrationThreeRef = useAnimateDisplay();
+
+  const linesOneRef = useAnimateDisplay();
+  const linesTwoRef = useAnimateDisplay();
+
   return (
     <Container>
       <SubText>Use the power of React to create your component.</SubText>
       <SubText>Build it, then use it and share it as a native Web Component.</SubText>
       <IllustrationWrapper>
-        <IllustrationContainer>
+        <IllustrationContainer ref={illustrationOneRef}>
           <IllustrationSection>
             <IllustrationContent>
               <ReactIcon />
@@ -34,7 +42,7 @@ const HowItWorks: FC = () => {
             <IllustrationHeadline>React</IllustrationHeadline>
           </IllustrationSection>
 
-          <IllustrationSection>
+          <IllustrationSection ref={illustrationTwoRef}>
             <IllustrationContent>
               <BuildBoxHeader>Build</BuildBoxHeader>
               <BuildBox>
@@ -45,7 +53,7 @@ const HowItWorks: FC = () => {
             <IllustrationHeadline>Direflow</IllustrationHeadline>
           </IllustrationSection>
 
-          <IllustrationSection>
+          <IllustrationSection ref={illustrationThreeRef}>
             <IllustrationContent>
               <WcIcon />
             </IllustrationContent>
@@ -54,8 +62,8 @@ const HowItWorks: FC = () => {
         </IllustrationContainer>
 
         <ArrowLineContainer>
-          <ArrawLineWrapper><ArrowLine /></ArrawLineWrapper>
-          <ArrawLineWrapper><ArrowLine /></ArrawLineWrapper>
+          <ArrawLineWrapper ref={linesOneRef}><ArrowLine /></ArrawLineWrapper>
+          <ArrawLineWrapper ref={linesTwoRef}><ArrowLine /></ArrawLineWrapper>
         </ArrowLineContainer>
       </IllustrationWrapper>
 

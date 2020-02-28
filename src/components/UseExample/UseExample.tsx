@@ -1,6 +1,7 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
 import { Column, Container, ExampleContainer } from './Styles';
 import { SubText } from '../HowItWorks/Styles';
+import useAnimateDisplay from '../../hooks/useAnimateDisplay';
 
 const UseExample: FC = () => {
   const [cartList, setCartList] = useState<any[]>([
@@ -38,6 +39,9 @@ const UseExample: FC = () => {
 
   const cartRef = useRef(null);
   const itemsRef = useRef(null);
+
+  const widgetsExampleRef = useAnimateDisplay();
+  const uiLibraryExampleRef = useAnimateDisplay();
 
   useEffect(() => {
     if (!cartRef.current) {
@@ -86,14 +90,14 @@ const UseExample: FC = () => {
 
   return (
     <Container>
-      <Column>
+      <Column ref={widgetsExampleRef}>
         <SubText>Micro Front Ends</SubText>
         <ExampleContainer>
           <crypto-cart fullWidth='true' ref={cartRef} />
           <crypto-items fullWidth='true' ref={itemsRef} componentTitle='Items' />
         </ExampleContainer>
       </Column>
-      <Column>
+      <Column ref={uiLibraryExampleRef}>
         <SubText>UI Libraries</SubText>
         <ExampleContainer>
           <custom-button size='small' text='Click this custom button' />

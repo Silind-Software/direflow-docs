@@ -8,20 +8,24 @@ import { Headline } from '../components/HowItWorks/Styles';
 import AppHeader from '../components/AppHeader/AppHeader';
 import CodeExample from '../components/CodeExample/CodeExample';
 import UseExample from '../components/UseExample/UseExample';
+import useAnimateDisplay from '../hooks/useAnimateDisplay';
 import '../styles/main.css';
 
 const IndexPage = () => {
+  const perfectForRef = useAnimateDisplay();
+  const getStartedRef = useAnimateDisplay();
+
   return (
     <>
       <AppHeader />
       <Header />
       <Jumbotron />
       <Section>
-        <Headline>Perfect for</Headline>
+        <Headline ref={perfectForRef}>Perfect for</Headline>
         <UseExample />
       </Section>
       <Section>
-        <Headline>Get started in minutes</Headline>
+        <Headline ref={getStartedRef}>Get started in minutes</Headline>
         <CodeExample />
       </Section>
       <Section>
@@ -32,6 +36,5 @@ const IndexPage = () => {
     </>
   );
 };
-
 
 export default IndexPage;

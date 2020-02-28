@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { CodeBlock, CopyButton } from './Styles';
+import useAnimateDisplay from '../../hooks/useAnimateDisplay';
 
 interface IProps {
   snippet: string;
@@ -8,6 +9,8 @@ interface IProps {
 }
 
 const CodeBlockCopy: FC<IProps> = (props: IProps) => {
+  const codeBlockRef = useAnimateDisplay();
+
   const copyToClipboard = () => {
     const el = document.createElement('textarea');
     el.value = props.snippet;
@@ -25,7 +28,7 @@ const CodeBlockCopy: FC<IProps> = (props: IProps) => {
       : { border: '3px solid #f1f5fa' };
 
   return (
-    <CodeBlock style={isActiveStyle}>
+    <CodeBlock ref={codeBlockRef} style={isActiveStyle}>
       <span>{props.snippet}</span>
       <CopyButton onClick={copyToClipboard}>Copy</CopyButton>
     </CodeBlock>
