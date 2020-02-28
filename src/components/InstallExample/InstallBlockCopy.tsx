@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import useScrollDisplay from '@silind/use-scroll-display';
+import useScrollDisplay from 'use-scroll-display';
 import { CodeBlock, CopyButton } from './Styles';
 
 interface IProps {
@@ -8,8 +8,8 @@ interface IProps {
   setActive: (snippet: string) => void;
 }
 
-const CodeBlockCopy: FC<IProps> = (props: IProps) => {
-  const codeBlockRef = useScrollDisplay();
+const InstallBlockCopy: FC<IProps> = (props: IProps) => {
+  const [codeBlockRef] = useScrollDisplay();
 
   const copyToClipboard = () => {
     const el = document.createElement('textarea');
@@ -24,8 +24,8 @@ const CodeBlockCopy: FC<IProps> = (props: IProps) => {
 
   const isActiveStyle =
     props.activeSnippet === props.snippet
-      ? { border: '3px solid #9eadbf' }
-      : { border: '3px solid #f1f5fa' };
+      ? { border: '4px solid #9eadbf' }
+      : { border: '4px solid #f1f5fa' };
 
   return (
     <CodeBlock ref={codeBlockRef} style={isActiveStyle}>
@@ -35,4 +35,4 @@ const CodeBlockCopy: FC<IProps> = (props: IProps) => {
   );
 };
 
-export default CodeBlockCopy;
+export default InstallBlockCopy;

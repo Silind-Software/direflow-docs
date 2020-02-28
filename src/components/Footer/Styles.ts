@@ -7,7 +7,6 @@ export const FooterContainer = styled.div`
   width: 100%;
   background-color: white;
   border-top: 1px solid #e3e7f7;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,7 +27,6 @@ export const TextContent = styled.div`
   ${mainFont}
   color: #333;
   padding: 0 25px;
-  box-sizing: border-box;
 
   @media ${device.tablet} {
     font-size: 16px;

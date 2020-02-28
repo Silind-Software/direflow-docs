@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { center, logoFont } from '../../../styles/Mixins';
+import { center, logoFont, mainWidth } from '../../../styles/Mixins';
 import { device } from '../../../styles/Device';
 import logo from '../../../images/logo.svg';
 import githubIcon from '../../../images/github.svg';
@@ -15,13 +15,11 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ccc;
-  box-sizing: border-box;
 
   & > a {
     font-size: 18px;
     font-weight: 300;
-    padding-left: 25px;
-    box-sizing: border-box;
+    padding-left: 10px;
     display: flex;
     align-items: center;
     ${logoFont}

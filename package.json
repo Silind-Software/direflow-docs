@@ -6,8 +6,8 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.4.5",
     "@mdx-js/react": "^1.4.5",
-    "@silind/use-scroll-display": "^1.0.0",
     "@types/react-helmet": "^5.0.11",
+    "@types/react-syntax-highlighter": "^11.0.4",
     "@types/styled-components": "^4.1.19",
     "babel-plugin-styled-components": "^1.10.6",
     "docz": "^2.0.0-rc.38",
@@ -31,12 +31,14 @@
     "react-device-detect": "^1.9.7",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
+    "react-syntax-highlighter": "^12.2.1",
     "scheduler": "0.14.0",
     "styled-components": "^4.3.2",
     "tslint": "^5.20.0",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-silind": "^1.0.21",
-    "tslint-react": "^4.1.0"
+    "tslint-react": "^4.1.0",
+    "use-scroll-display": "^1.0.3"
   },
   "devDependencies": {
     "@types/node": "^12.7.5",

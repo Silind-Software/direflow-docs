@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { center, secondaryFont, logoFont } from '../../styles/Mixins';
+import { center, secondaryFont, logoFont, mainFont } from '../../styles/Mixins';
 import { device } from '../../styles/Device';
 import headlineImage from '../../images/headline-image.svg';
 import bigLogo from '../../images/logo-big.svg';
@@ -11,7 +11,6 @@ export const JumbotronContainer = styled.div`
   background-color: white;
   border-bottom: 1px solid #e3e7f7;
   flex-direction: column;
-  box-sizing: border-box;
   box-shadow: 0 15px 20px #e3e7f7;
   padding: 0 25px;
   position: relative;
@@ -55,7 +54,7 @@ export const BigLogo = styled.div`
   background-repeat: no-repeat;
   position: absolute;
   right: -250px;
-  opacity: 0.2;
+  opacity: 0.3;
   bottom: 0;
 
   @media ${device.tablet} {
@@ -86,7 +85,7 @@ export const PairLogo = styled.div`
   background-image: url(${pairLogo});
   background-size: 100%;
   position: absolute;
-  opacity: 0.2;
+  opacity: 0.3;
   left: -100px;
   top: 25%;
 
@@ -209,7 +208,6 @@ export const Button = styled.div`
 export const SecondaryButton = styled(Button)`
   background-color: transparent;
   color: #4B6A97;
-  box-sizing: border-box;
   padding: 15px 20px;
 
   &:hover {
@@ -220,4 +218,34 @@ export const SecondaryButton = styled(Button)`
 export const Highligt = styled.span`
   font-weight: bold;
   color: #4B6A97;
+`;
+
+export const SmallText = styled.div`
+  margin-top: 18px;
+  font-size: 12px;
+  ${mainFont}
+
+  & > a {
+    transition: 0.3s;
+    color: #4B6A97;
+  }
+
+  & > a:hover {
+    color: #1869db;
+  }
+
+  @media ${device.tablet} {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  @media ${device.laptop} {
+    font-size: 15px;
+    margin-top: 22px;
+  }
+
+  @media ${device.desktop} {
+    font-size: 16px;
+    margin-top: 25px;
+  }
 `;

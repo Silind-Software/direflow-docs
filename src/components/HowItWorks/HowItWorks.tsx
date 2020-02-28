@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import useScrollDisplay from '@silind/use-scroll-display';
+import useScrollDisplay from 'use-scroll-display';
 import {
   Container,
   IllustrationContainer,
@@ -12,27 +12,22 @@ import {
   BuildBoxImage,
   WcIcon,
   IllustrationContent,
-  SubText,
   ArrowLine,
   ArrowLineContainer,
-  ArrawLineWrapper,
+  ArrowLineWrapper,
   IllustrationWrapper,
 } from './Styles';
-import { Link } from '@reach/router';
-import { Button } from '../Jumbotron/Styles';
 
 const HowItWorks: FC = () => {
-  const illustrationOneRef = useScrollDisplay();
-  const illustrationTwoRef = useScrollDisplay();
-  const illustrationThreeRef = useScrollDisplay();
+  const [illustrationOneRef] = useScrollDisplay();
+  const [illustrationTwoRef] = useScrollDisplay();
+  const [illustrationThreeRef] = useScrollDisplay();
 
-  const linesOneRef = useScrollDisplay();
-  const linesTwoRef = useScrollDisplay();
+  const [linesOneRef] = useScrollDisplay();
+  const [linesTwoRef] = useScrollDisplay();
 
   return (
     <Container>
-      <SubText>Use the power of React to create your component.</SubText>
-      <SubText>Build it, then use it and share it as a native Web Component.</SubText>
       <IllustrationWrapper>
         <IllustrationContainer ref={illustrationOneRef}>
           <IllustrationSection>
@@ -62,14 +57,10 @@ const HowItWorks: FC = () => {
         </IllustrationContainer>
 
         <ArrowLineContainer>
-          <ArrawLineWrapper ref={linesOneRef}><ArrowLine /></ArrawLineWrapper>
-          <ArrawLineWrapper ref={linesTwoRef}><ArrowLine /></ArrawLineWrapper>
+          <ArrowLineWrapper ref={linesOneRef}><ArrowLine /></ArrowLineWrapper>
+          <ArrowLineWrapper ref={linesTwoRef}><ArrowLine /></ArrowLineWrapper>
         </ArrowLineContainer>
       </IllustrationWrapper>
-
-      <Link to='/introduction'>
-        <Button>→ Get Started</Button>
-      </Link>
     </Container>
   );
 };

@@ -59,6 +59,7 @@ In order to add new documentation pages, follow this procedure:
     'Plugins',
     'Additional',
     'Contributing',
+    'Changelog',
     'New Doc'
    ]
    ```

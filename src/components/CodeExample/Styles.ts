@@ -1,85 +1,81 @@
 import styled from 'styled-components';
-import { codeFont, center, noSelect } from '../../styles/Mixins';
+import { secondaryFont, noSelect } from '../../styles/Mixins';
 import { device } from '../../styles/Device';
 
 export const Container = styled.div`
-  width: 90%;
-
-  @media ${device.tablet} {
-    width: 600px;
-  }
-
-  @media ${device.laptop} {
-    width: 620px;
-  }
-
-  @media ${device.desktop} {
-    width: 640px;
-  }
-`;
-
-export const CodeBlock = styled.div`
   width: 100%;
-  box-sizing: border-box;
+  max-width: 960px;
   border-radius: 10px;
-  padding: 10px 12px;
-  margin: 12px 0;
-  background-color: #c0c9d3;
-  color: #304360;
-  ${codeFont}
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  transition: 0.3s;
+  background-color: #1f2e3f;
+  display: grid;
+  grid-template-rows: auto auto;
+  overflow: hidden;
+  margin-top: 50px;
 
   @media ${device.tablet} {
-    padding: 10px 16px;
-    margin: 16px 0;
-    font-size: 14px;
-  }
-
-  @media ${device.laptop} {
-    padding: 12px 18px;
-    margin: 18px 0;
-    font-size: 16px;
-  }
-
-  @media ${device.desktop} {
-    padding: 15px 20px;
-    margin: 20px 0;
-    font-size: 18px;
+    grid-template-columns: 260px auto;
+    grid-template-rows: none;
   }
 `;
 
-export const CopyButton = styled.div`
-  box-sizing: border-box;
+export const SideMenu = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #263851;
+  padding: 25px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+
+  @media ${device.tablet} {
+    min-width: 120px;
+  }
+
+  @media ${device.laptop} {
+    min-width: 180px;
+  }
+
+  @media ${device.desktop} {
+    min-width: 260px;
+  }
+`;
+
+export const TopDots = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+
+  & > span {
+    width: 12px;
+    height: 12px;
+    background-color: hsla(0, 0%, 100%, 0.2);
+    border-radius: 50%;
+    margin: 0 4px;
+  }
+`;
+
+export const MenuItem = styled.div`
+  ${noSelect}
+  color: #fff;
+  line-height: 1.2;
+  padding: 10px;
   border-radius: 5px;
-  padding: 5px;
-  background-color: white;
-  color: #4B6A97;
+  width: 100%;
+  margin: 0 8px 8px 0;
+  background-color: ${(props) => props.theme.active ? '#336da9' : 'transparent'};
+  ${secondaryFont}
   transition: 0.3s;
   cursor: pointer;
-  ${center}
-  ${noSelect}
-
-  @media ${device.tablet} {
-    padding: 6px;
-    border-radius: 6px;
-  }
-
-  @media ${device.laptop} {
-    padding: 8px;
-    border-radius: 8px;
-  }
-
-  @media ${device.desktop} {
-    padding: 10px;
-    border-radius: 10px;
-  }
 
   &:hover {
-    background-color: #4B6A97;
-    color: white;
+    background-color: ${(props) => props.theme.active ? '#336da9' : '#354860'};
   }
+`;
+
+export const Content = styled.div`
+  overflow: hidden;
+`;
+
+export const ContentSection = styled.div`
+  width: 200%;
+  height: 100%;
+  overflow-x: auto;
+  display: flex;
 `;

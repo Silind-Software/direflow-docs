@@ -1,35 +1,28 @@
 import styled from 'styled-components';
-import { center } from '../../styles/Mixins';
+import { center, mainWidth } from '../../styles/Mixins';
 import { device } from '../../styles/Device';
 
 export const Container = styled.div`
-  width: 100%;
+  ${mainWidth}
   ${center}
   flex-wrap: wrap;
-
-  @media ${device.tablet} {
-    width: 768px;
-    height: 550px;
-  }
-
-  @media ${device.laptop} {
-    width: 1024px;
-  }
-
-  @media ${device.desktop} {
-    width: 1200px;
-  }
+  margin-top: 50px;
 `;
 
 export const Column = styled.div`
-  width: 50%;
-  min-width: 375px;
+  width: 100%;
+  min-width: 320px;
   height: 100%;
   ${center}
   justify-content: flex-start;
   flex-direction: column;
   margin: 10px 0;
+
+  @media ${device.tablet} {
+    width: 50%;
+  }
 `;
+
 
 export const ExampleContainer = styled.div`
   width: 100%;

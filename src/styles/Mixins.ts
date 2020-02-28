@@ -1,3 +1,5 @@
+import { device } from './Device';
+
 export const center = `
   display: flex;
   justify-content: center;
@@ -36,4 +38,20 @@ export const secondaryFont = `
 
 export const codeFont = `
   font-family: 'Fira Code', monospace;
+`;
+
+export const mainWidth = `
+  width: 100%;
+
+  @media ${device.tablet} {
+    width: 768px;
+  }
+
+  @media ${device.laptop} {
+    width: 1024px;
+  }
+
+  @media ${device.desktop} {
+    width: 1440px;
+  }
 `;

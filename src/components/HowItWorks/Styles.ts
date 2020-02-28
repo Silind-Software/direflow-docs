@@ -47,6 +47,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 25px;
 `;
 
 export const Headline = styled.div`
@@ -68,30 +69,8 @@ export const Headline = styled.div`
   }
 `;
 
-export const SubText = styled.div`
-  font-size: 14px;
-  color: #333;
-  ${mainFont}
-  text-align: center;
-  box-sizing: border-box;
-  padding: 0 25px;
-
-  @media ${device.tablet} {
-    font-size: 18px;
-  }
-
-  @media ${device.laptop} {
-    font-size: 22px;
-  }
-
-  @media ${device.desktop} {
-    font-size: 26px;
-  }
-`;
-
 export const IllustrationWrapper = styled.div`
   position: relative;
-  margin-bottom: 50px;
 `;
 
 export const IllustrationContainer = styled.div`
@@ -219,7 +198,6 @@ export const BuildBoxBackground = styled.div`
 
 export const BuildBoxHeader = styled.div`
   padding: 0 10px;
-  box-sizing: border-box;
   line-height: 25px;
   height: 25px;
   border-radius: 5px;
@@ -266,11 +244,10 @@ export const ArrowLineContainer = styled.div`
   }
 `;
 
-export const ArrawLineWrapper = styled.div`
+export const ArrowLineWrapper = styled.div`
   width: 3px;
   height: 7.5%;
   overflow: hidden;
-  box-sizing: border-box;
 
   @media ${device.tablet} {
     width: 10%;
@@ -281,7 +258,7 @@ export const ArrawLineWrapper = styled.div`
 
 export const ArrowLine = styled.div`
   width: 100%;
-  height: 115%;
+  height: 200%;
   background-position: right;
   background-size: 3px 10px;
   margin-top: -10px;
@@ -299,5 +276,4 @@ export const ArrowLine = styled.div`
     background-repeat: repeat-x;
     background-image: linear-gradient(to right, #ccd7e8 50%, rgba(255,255,255,0) 0%);
   }
-
 `;

@@ -1,7 +1,6 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
-import useScrollDisplay from '@silind/use-scroll-display';
+import useScrollDisplay from 'use-scroll-display';
 import { Column, Container, ExampleContainer } from './Styles';
-import { SubText } from '../HowItWorks/Styles';
 
 const UseExample: FC = () => {
   const [cartList, setCartList] = useState<any[]>([
@@ -40,8 +39,8 @@ const UseExample: FC = () => {
   const cartRef = useRef(null);
   const itemsRef = useRef(null);
 
-  const widgetsExampleRef = useScrollDisplay();
-  const uiLibraryExampleRef = useScrollDisplay();
+  const [widgetsExampleRef] = useScrollDisplay();
+  const [uiLibraryExampleRef] = useScrollDisplay();
 
   useEffect(() => {
     if (!cartRef.current) {
@@ -51,7 +50,9 @@ const UseExample: FC = () => {
     const removeItem = (event: CustomEvent) => {
       setCartList((currentList: any[]) => {
         const item = event.detail;
-        const itemIndex = currentList.findIndex((currentItem) => currentItem.symbol === item.symbol);
+        const itemIndex = currentList.findIndex(
+          (currentItem) => currentItem.symbol === item.symbol,
+        );
         return currentList.filter((_, index) => index !== itemIndex);
       });
     };
@@ -91,21 +92,19 @@ const UseExample: FC = () => {
   return (
     <Container>
       <Column ref={widgetsExampleRef}>
-        <SubText>Micro Front Ends</SubText>
         <ExampleContainer>
           <crypto-cart fullWidth='true' ref={cartRef} />
           <crypto-items fullWidth='true' ref={itemsRef} componentTitle='Items' />
         </ExampleContainer>
       </Column>
       <Column ref={uiLibraryExampleRef}>
-        <SubText>UI Libraries</SubText>
         <ExampleContainer>
-          <custom-button size='small' text='Click this custom button' />
-          <custom-button type='primary' size='small' text='Click this custom button' />
-          <custom-button type='success' size='medium' text='Click this custom button' />
-          <custom-button type='info' size='medium' text='Click this custom button' />
-          <custom-button type='warning' size='large' text='Click this custom button' />
-          <custom-button type='danger' size='x-large' text='Click this custom button' />
+          <custom-button size='small' text='Click this small button' />
+          <custom-button type='primary' size='small' text='Click this primary button' />
+          <custom-button type='info' size='medium' text='Click this info button' />
+          <custom-button type='success' size='medium' text='Click this success button' />
+          <custom-button type='warning' size='large' text='Click this warning button' />
+          <custom-button type='danger' size='x-large' text='Click this danger button' />
         </ExampleContainer>
       </Column>
     </Container>

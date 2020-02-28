@@ -13,10 +13,10 @@ One thing is providing the Web Component with data through properties - but we a
 In order to dispatch events that can be listened to from the Web Component, use the `EventContext`.  
 For example - if you want to dispatch a custom event 'my-event' that is triggered onClick, all you have to do is:  
 ```jsx
-import React, { FC, useContext } from 'react';
+import React, { useContext } from 'react';
 import { EventContext } from 'direflow-component';
 
-const App: FC = () => {
+const App = () => {
   const dispatch = useContext(EventContext);
 
   const handleClick = () => {

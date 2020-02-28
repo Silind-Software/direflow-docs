@@ -11,6 +11,7 @@ import {
   Content,
   BottomFadeLine,
   PairLogo,
+  SmallText,
 } from './Styles';
 import { Link } from '@reach/router';
 
@@ -27,7 +28,8 @@ const Jumbotron: FC = () => {
         <Subtext>
           Use the best of two worlds.
           <br />
-          Create fast, performant, native <Highligt>Web Components</Highligt> using <Highligt>React</Highligt>.
+          Create fast, performant, native <Highligt>Web Components</Highligt> using{' '}
+          <Highligt>React</Highligt>.
         </Subtext>
         <ButtonContainer>
           <Link to='/get-started'>
@@ -37,6 +39,13 @@ const Jumbotron: FC = () => {
             <SecondaryButton>View on Github</SecondaryButton>
           </a>
         </ButtonContainer>
+        <SmallText>
+          Open-Source{' '}
+          <Highligt>
+            <a href='https://github.com/Silind-Software/direflow/blob/master/LICENSE'>MIT</a>
+          </Highligt>{' '}
+          License. <a href='https://github.com/Silind-Software/direflow'>GitHub (v. 3.3.0)</a>
+        </SmallText>
       </Content>
     </JumbotronContainer>
   );
