@@ -5,36 +5,11 @@ import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Container, SideMenu, TopDots, MenuItem, ContentSection, Content } from './Styles';
 import { codeSnippets } from './codeSnippets';
 
-let cycleInterval;
-
 const CodeExample: FC = () => {
-  const [codeExampleRef, hasDisplayed] = useScrollDisplay();
+  const [codeExampleRef] = useScrollDisplay();
   const [menuSelected, setMenuSelcted] = useState(0);
   const [nextMenuSelected, setNextMenuSelected] = useState(0);
   const [isSwapping, setIsSwapping] = useState(false);
-  const [shouldCycle, setShouldCycle] = useState(false);
-
-  useEffect(() => {
-    if (hasDisplayed && !shouldCycle) {
-      setShouldCycle(true);
-    }
-  }, [hasDisplayed]);
-
-  useEffect(() => {
-    if (!shouldCycle) {
-      clearInterval(cycleInterval);
-      return;
-    }
-
-    cycleInterval = setInterval(() => {
-      setMenuSelcted((currentMenuSelected) => {
-        const next = currentMenuSelected !== codeSnippets.length - 1 ? currentMenuSelected + 1 : 0;
-
-        handleMenuChange(next);
-        return currentMenuSelected;
-      });
-    }, 3500);
-  }, [shouldCycle]);
 
   const handleMenuChange = (menuIndex: number) => {
     setNextMenuSelected(menuIndex);
@@ -50,7 +25,6 @@ const CodeExample: FC = () => {
 
   const renderMenus = codeSnippets.map((snippet, index: number) => {
     const onMenuChange = () => {
-      setShouldCycle(false);
       handleMenuChange(index);
     };
 

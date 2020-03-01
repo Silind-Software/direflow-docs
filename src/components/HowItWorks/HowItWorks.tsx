@@ -5,6 +5,7 @@ import {
   IllustrationContainer,
   IllustrationSection,
   ReactIcon,
+  IconHolder,
   IllustrationHeadline,
   BuildBox,
   BuildBoxHeader,
@@ -16,50 +17,60 @@ import {
   ArrowLineContainer,
   ArrowLineWrapper,
   IllustrationWrapper,
+  BuildBoxText,
 } from './Styles';
 
 const HowItWorks: FC = () => {
-  const [illustrationOneRef] = useScrollDisplay();
-  const [illustrationTwoRef] = useScrollDisplay();
-  const [illustrationThreeRef] = useScrollDisplay();
-
-  const [linesOneRef] = useScrollDisplay();
-  const [linesTwoRef] = useScrollDisplay();
-
   return (
     <Container>
       <IllustrationWrapper>
-        <IllustrationContainer ref={illustrationOneRef}>
+        <ArrowLineContainer>
+          <ArrowLineWrapper>
+            <ArrowLine />
+          </ArrowLineWrapper>
+          <ArrowLineWrapper>
+            <ArrowLine />
+          </ArrowLineWrapper>
+        </ArrowLineContainer>
+
+        <IllustrationContainer>
           <IllustrationSection>
             <IllustrationContent>
-              <ReactIcon />
+              <BuildBoxHeader>Create</BuildBoxHeader>
+              <IconHolder>
+                <ReactIcon />
+              </IconHolder>
             </IllustrationContent>
             <IllustrationHeadline>React</IllustrationHeadline>
           </IllustrationSection>
 
-          <IllustrationSection ref={illustrationTwoRef}>
+          <IllustrationSection>
             <IllustrationContent>
               <BuildBoxHeader>Build</BuildBoxHeader>
               <BuildBox>
                 <BuildBoxBackground />
                 <BuildBoxImage />
+                <BuildBoxText>
+                  Powered by&nbsp;
+                  <a href='https://github.com/facebook/create-react-app' target='_blank'>
+                    react-scripts
+                  </a>
+                </BuildBoxText>
               </BuildBox>
             </IllustrationContent>
             <IllustrationHeadline>Direflow</IllustrationHeadline>
           </IllustrationSection>
 
-          <IllustrationSection ref={illustrationThreeRef}>
+          <IllustrationSection>
             <IllustrationContent>
-              <WcIcon />
+              <BuildBoxHeader>Consume</BuildBoxHeader>
+              <IconHolder>
+                <WcIcon />
+              </IconHolder>
             </IllustrationContent>
             <IllustrationHeadline>Web Component</IllustrationHeadline>
           </IllustrationSection>
         </IllustrationContainer>
-
-        <ArrowLineContainer>
-          <ArrowLineWrapper ref={linesOneRef}><ArrowLine /></ArrowLineWrapper>
-          <ArrowLineWrapper ref={linesTwoRef}><ArrowLine /></ArrowLineWrapper>
-        </ArrowLineContainer>
       </IllustrationWrapper>
     </Container>
   );

@@ -7,7 +7,7 @@ interface IProps {
 
 const AppHeader: FC<IProps> = (props) => {
   const title = props.title || 'Direflow';
-  const description = 'Create Web Components using React';
+  const description = 'Use the best of two worlds. Create fast, performant, native Web Components using React.';
 
   return (
     <Helmet>

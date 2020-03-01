@@ -74,7 +74,7 @@ export const IllustrationWrapper = styled.div`
 `;
 
 export const IllustrationContainer = styled.div`
-  width: 50vw;
+  width: 75vw;
   display: flex;
   flex-direction: column;
   margin-top: 25px;
@@ -107,7 +107,7 @@ export const IllustrationSection = styled.div`
 
 export const IllustrationContent = styled.div`
   width: 100%;
-  min-height: 100px;
+  min-height: 150px;
   ${center};
   flex-direction: column;
   position: relative;
@@ -138,19 +138,22 @@ export const IllustrationHeadline = styled.div`
   }
 `;
 
-export const Icon = styled.div`
+export const IconHolder = styled.div`
   width: 50%;
-  padding-bottom: 50%;
   border-radius: 50%;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 2.3px 1.9px, rgba(0, 0, 0, 0.03) 0px 5.4px 4.3px,
+    rgba(0, 0, 0, 0.035) 0px 9.7px 7.7px, rgba(0, 0, 0, 0.043) 0px 16.1px 12.8px,
+    rgba(0, 0, 0, 0.05) 0px 26.5px 21.2px, rgba(0, 0, 0, 0.06) 0px 46.2px 37px,
+    rgba(0, 0, 0, 0.08) 0px 100px 80px;
+`;
+
+export const Icon = styled.div`
+  width: 100%;
+  padding-bottom: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-color: white;
-  box-shadow: 0 0 10px #ccc;
-
-  @media ${device.tablet} {
-    width: 50%;
-    padding-bottom: 50%;
-  }
 `;
 
 export const ReactIcon = styled(Icon)`
@@ -167,11 +170,14 @@ export const WcIcon = styled(Icon)`
 
 export const BuildBox = styled.div`
   width: 75%;
-  height: 100px;
+  height: 150px;
   position: absolute;
   background-color: white;
-  box-shadow: 0 0 30px #5781C2cf;
   ${center};
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 2.3px 1.9px, rgba(0, 0, 0, 0.03) 0px 5.4px 4.3px,
+    rgba(0, 0, 0, 0.035) 0px 9.7px 7.7px, rgba(0, 0, 0, 0.043) 0px 16.1px 12.8px,
+    rgba(0, 0, 0, 0.05) 0px 26.5px 21.2px, rgba(0, 0, 0, 0.06) 0px 46.2px 37px,
+    rgba(0, 0, 0, 0.08) 0px 100px 80px;
 
   @media ${device.tablet} {
     height: 200px;
@@ -180,12 +186,45 @@ export const BuildBox = styled.div`
 
 export const BuildBoxImage = styled.div`
   width: 100%;
-  height: 100%;
+  height: 80%;
   background-image: url(${logo});
-  background-size: 45%;
+  background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
+  top: 5%;
+`;
+
+export const BuildBoxText = styled.div`
+  ${mainFont}
+  width: 100%;
+  height: 15%;
+  position: absolute;
+  bottom: 0;
+  ${center}
+  color: #4B6A97;
+  font-size: 11px;
+
+  @media ${device.tablet} {
+    font-size: 12px;
+  }
+
+  @media ${device.laptop} {
+    font-size: 13px;
+  }
+
+  @media ${device.desktop} {
+    font-size: 14px;
+  }
+
+  & > a {
+    transition: 0.3s;
+    color: #4b6a97;
+  }
+
+  & > a:hover {
+    color: #1869db;
+  }
 `;
 
 export const BuildBoxBackground = styled.div`
@@ -217,12 +256,11 @@ export const BuildBoxHeader = styled.div`
 
 export const ArrowLineContainer = styled.div`
   width: 3px;
-  height: calc(100% - 30px);
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   position: absolute;
-  top: 25px;
   left: 50%;
 
   @media ${device.tablet} {
@@ -246,11 +284,11 @@ export const ArrowLineContainer = styled.div`
 
 export const ArrowLineWrapper = styled.div`
   width: 3px;
-  height: 7.5%;
+  height: 30%;
   overflow: hidden;
 
   @media ${device.tablet} {
-    width: 10%;
+    width: 30%;
     height: 5px;
     padding: 0 -20px;
   }
@@ -263,7 +301,7 @@ export const ArrowLine = styled.div`
   background-size: 3px 10px;
   margin-top: -10px;
   background-repeat: repeat-y;
-  background-image: linear-gradient(#ccd7e8 50%, rgba(255,255,255,0) 0%);
+  background-image: linear-gradient(#ccd7e8 50%, rgba(255, 255, 255, 0) 0%);
   animation: ${dashLineVertiAnimation} 0.6s linear infinite;
 
   @media ${device.tablet} {
@@ -274,6 +312,6 @@ export const ArrowLine = styled.div`
     margin-left: -20px;
     background-size: 20px 5px;
     background-repeat: repeat-x;
-    background-image: linear-gradient(to right, #ccd7e8 50%, rgba(255,255,255,0) 0%);
+    background-image: linear-gradient(to right, #ccd7e8 50%, rgba(255, 255, 255, 0) 0%);
   }
 `;

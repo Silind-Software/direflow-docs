@@ -15,7 +15,6 @@ import CodeExample from '../components/CodeExample/CodeExample';
 import '../styles/main.css';
 
 const IndexPage = () => {
-  const [howItWorks] = useScrollDisplay();
   const [howItsUsed] = useScrollDisplay();
   const [easyToUse] = useScrollDisplay();
   const [getStarted] = useScrollDisplay();
@@ -26,18 +25,18 @@ const IndexPage = () => {
       <Header />
       <Jumbotron />
       <FullSection color='#f1f5fa'>
-        <Section ref={howItWorks} style={{ opacity: 0 }}>
+        <Section>
           <Headline>How it works</Headline>
-          <SubText>Use the power of React to create your component.</SubText>
-          <SubText>Build it, then use it and share it as a native Web Component.</SubText>
+          <SubText>Use the power of React to create your component</SubText>
+          <SubText>Build it, then use it and share it as a native Web Component</SubText>
           <HowItWorks />
         </Section>
       </FullSection>
       <FullSection>
         <Section ref={howItsUsed} style={{ opacity: 0 }}>
           <Headline>How it's used</Headline>
-          <SubText>Create rich and completely self-contained Micro Frontends.</SubText>
-          <SubText>Build entire UI Libraries to be consumed natively in the browser.</SubText>
+          <SubText>Create rich and completely self-contained Micro Frontends</SubText>
+          <SubText>Build entire UI Libraries and use it across any UI frameworks & libraries</SubText>
           <UseExample />
         </Section>
       </FullSection>
@@ -45,7 +44,7 @@ const IndexPage = () => {
         <Section ref={easyToUse} style={{ opacity: 0 }}>
           <Headline>Easy to use</Headline>
           <SubText>Direflow makes it really easy to get started developing!</SubText>
-          <SubText>Create your first Web Component in a matter of minutes ⚡️</SubText>
+          <SubText>Create your first Direflow Component in a matter of minutes ⚡️</SubText>
           <CodeExample />
         </Section>
       </FullSection>
