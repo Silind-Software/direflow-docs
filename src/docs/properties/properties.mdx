@@ -66,6 +66,18 @@ class App extends React.Component {
   ...
 }
 ```
+#### Prerequisites
+> **TypeScript**  
+> Set `"experimentalDecorators": true` in tsconfig.json  
+> &nbsp;  
+> **JavaScript**  
+> - Run `yarn add babel-plugin-transform-decorators-legacy --dev`  
+> - Add to package.json:
+>  ```
+>  "babel": {
+>   "plugins": ["transform-decorators-legacy"]
+>  },
+>  ```
 
 ### Method 3 - Direflow configuration
 Finally, you can also set properties as a part of the main Direflow configuration

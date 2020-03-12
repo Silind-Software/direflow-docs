@@ -46,7 +46,7 @@ const Jumbotron: FC = () => {
           </Highligt>{' '}
           License.{' '}
           <a href='https://github.com/Silind-Software/direflow' target='_blank'>
-            GitHub (v. 3.3.0)
+            GitHub (v. 3.4.1)
           </a>
         </SmallText>
       </Content>

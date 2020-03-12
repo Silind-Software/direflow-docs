@@ -43,16 +43,17 @@ When you create a new Direflow Setup from `direflow-cli`, you will get a basic s
 ```
 .
 ├── public
-│  ├── index.css
-│  └── index.html
+│   ├── index.css
+│   └── index.html
 ├── src
-│  ├── direflow-component
-│  │   ├── test
-│  │   │   └── App.test.js
-│  │   ├── App.css
-│  │   ├── App.js
-│  │   └── index.js
-│  └── index.js
+│   ├── direflow-components
+│   │   └── my-component
+│   │       ├── test
+│   │       │   └── App.test.js
+│   │       ├── App.css
+│   │       ├── App.js
+│   │       └── index.js
+│   └── index.js
 ├── direflow-webpack.js
 ├── package.json
 └── README.md
@@ -70,7 +71,7 @@ There will exists two types of essential `index.js` files.
 
 #### Direflow Component index.js file
 There is an `index.js` file that belongs to each Direflow Component.  
-All Direflow Components must be placed in a folder directly inside `src`, and must all contain an `index.js` file.  
+All Direflow Components must be placed in a folder directly inside the folder `direflow-components`.  
 
 In this `index.js` file, the React App is mounted as a Web Component using the `DireflowComponent` instance.  
 ```javascript
@@ -92,8 +93,8 @@ As a default, the Web Component will be given the same name as your Direflow Set
 The configuration object can also contain _plugins_.  
 See more under [plugins](/plugins).
   
-#### Root index.js file
-There is also a __root__ `index.js` file that is places in `src/index.js`.  
+#### Main index.js file
+There is also a __main__ `index.js` file that is places in `src/index.js`.  
 This is the entry file of the setup, and is required to exist.  
 In this `index.js` file, it is practical to add any additional functionality or meta-logic for the setup, if needed.  
 For instance, this is a good place to hook into your Web Component one it's mounted on the DOM.
