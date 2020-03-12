@@ -47,8 +47,45 @@ This will create a build folder containing two bundle-files:
 
 `direflowBundle.js`: Will contain all source-code.  
 `vendor.js`: Will contain all third-party packages.
+  
+To split your bundle into a chunk per Direflow Component, use the split argument.
+```console
+yarn build --split
+```
+or
+```console
+npm run build --split
+```
 
-In order to chunk your Direflow Components in any other way, refer to the file `direflow-webpack.js`, where additional optimization rules can be specified.  
+This will create a build folder containing a bundle-file per Direflow Component.
+```
+.
+└── build
+    ├── main.js
+    ├── coolComponent.js
+    └── awesomeComponent.js
+```
+The `main.js` file will contain the code in your _root_ `index.js` file.  
+If the _root_ `index.js` file is empty, the `main.js` file can be excluded.
+
+Additionally, you can combine both:
+```console
+yarn build --vendor --split
+```
+or
+```console
+npm run build --vendor --split
+```
+
+To get:
+```
+.
+└── build
+    ├── main.js
+    ├── vendor.js
+    ├── coolComponent.js
+    └── awesomeComponent.js
+```
 
 ## Renaming bundle-files
 You have the option to rename the bundlefiles.
@@ -61,7 +98,7 @@ module.exports = (config, env) => ({
   ...webpackConfig(config, env, { filename: 'myBundle.js', chunkFilename: 'thirdParty.js' });
 });
 ```
-
+> NB: This does not work using the `--split` option.
 
 ## Shadow DOM
 The Web Component will run inside a shadow DOM.  
@@ -118,6 +155,156 @@ If you want to use IE 11 during development, add 'IE 11' to `browserlist` under 
       "IE 11" // <- Add this line
     ]
   },
+```
+
+## Tips for Material-UI
+Some components in Material-UI generate DOM elements out of the webcomponent.
+
+To overcome this issue, most of the time, a `RootRef` inside a parent `div` must be used first and then, the `RootRef.rootRef` must be provided to a specific attribute of the component to make it generate DOM *inside* the webcomponent.
+
+Examples for each specific component are shown below. Examples are only partial and based on Functional Components.
+
+### Popover
+To keep the generated DOM inside the webcomponent:
+- Use a `RootRef`
+- Set attribute `container` of the `Popover` and provide the `rootRef`
+
+Example
+```javascript
+const domRef = React.createRef();
+
+const [anchorEl, setAnchorEl] = React.useState(null);
+const handlePopoverClick = event => {
+    setAnchorEl(event.currentTarget);
+};
+const handlePopoverClose = () => {
+    setAnchorEl(null);
+};
+const openPopover = Boolean(anchorEl);
+const domRef = React.useRef();
+
+return (
+    <div>
+        <RootRef rootRef={domRef}>
+        <Button variant="contained" color="primary" onClick={handlePopoverClick}>
+            Open Popover
+        </Button>
+        <Popover
+            open={openPopover}
+            anchorEl={anchorEl}
+            container={domRef.current}
+            onClose={handlePopoverClose}>
+            <Typography>The content of the Popover.</Typography>
+        </Popover>
+        </RootRef>
+    </div>
+);
+```
+
+### Modal
+To keep the generated DOM inside the webcomponent:
+- Use a `RootRef`
+- Set attribute `container` of the `Modal` and provide the `rootRef`
+
+Example
+```javascript
+const domRef = React.createRef();
+
+return (
+    <div>
+        <RootRef rootRef={domRef}>
+            <Modal
+                open={true}
+                container={domRef.current}>
+                  <div style={{textAlign: 'center', backgroundColor: 'white', marginTop: '100px', marginLeft: '50%', transform: 'translateX(-50%)', width: '50%'}}>
+                    <h2 style={{color: 'black'}}>Text in a modal</h2>
+                  </div>
+            </Modal>
+        </RootRef>
+    </div>
+)
+```
+
+### Select
+To keep the generated DOM inside the webcomponent:
+- Use a `RootRef`
+- Set attribute `container` inside `MenuProps` of the `Select` and provide the `rootRef`
+
+Example
+```javascript
+const domRef = React.createRef();
+
+return (
+    <div>
+        <RootRef rootRef={domRef}>
+            <FormControl>
+                <InputLabel>Age</InputLabel>
+                <Select style={{ width: 100 }} MenuProps={{ container: domRef.current }}>
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+            </FormControl>
+        </RootRef>
+    </div>
+)
+```
+
+### Autocomplete
+Autocomplete comes with `@material-ui/lab`.
+To keep the autocomplete list inside the webcomponent, disable the portal used with `disablePortal={true}`.
+
+Install the library first:
+```console
+yarn add @material-ui/lab
+```
+
+Example:
+```javascript
+return (
+    <Autocomplete
+        options={['movie1', 'movie2', 'film1', 'film2']}
+        style={{ width: 100 }}
+        disablePortal={true}
+        renderInput={params => <TextField {...params} label="Choice" variant="outlined" />}
+    />
+)
+```
+
+### Menu
+To keep the generated DOM inside the webcomponent:
+- Use a `RootRef`
+- Set attribute `container` of the `Menu` and provide the `rootRef`
+
+```javascript
+const domRef = React.createRef();
+
+const [anchorMenuEl, setAnchorMenuEl] = React.useState(null);
+const handleMenuClick = (event: any) => {
+    setAnchorMenuEl(event.currentTarget);
+};
+const handleMenuClose = () => {
+    setAnchorMenuEl(null);
+};
+
+return (
+    <div>
+        <RootRef rootRef={domRef}>
+          <Button onClick={handleMenuClick}>
+            Open Menu
+          </Button>
+          <Menu
+            anchorEl={anchorMenuEl}
+            open={Boolean(anchorMenuEl)}
+            onClose={handleMenuClose}
+            container={domRef.current}>
+              <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+              <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+              <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+          </Menu>
+        </RootRef>
+    </div>
+)
 ```
 
 <br />

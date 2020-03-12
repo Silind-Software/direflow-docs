@@ -62,6 +62,26 @@ plugins: [
 ]
 ```
 
+For `js` files, you can provide the option to load the script asynchronously.
+
+Example:
+```javascript
+plugins: [
+  {
+    name: 'external-loader',
+    options: {
+      paths: [
+        {
+          src: 'https://code.jquery.com/jquery-3.3.1.slim.min.js',
+          async: true,
+        },
+        'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
+      ],
+    }
+  }
+];
+```
+
 ## icon-loader
 The `icon-loader` plugin allows us to load icon-specific resources.  
 For instance, if we want to use the icon pack from material design.  
@@ -147,156 +167,7 @@ or
 ```console
 yarn add @material-ui/core
 ```
-
-### Tips for material-ui
-Some components in Material-UI generate DOM elements out of the webcomponent.
-
-To overcome this issue, most of the time, a `RootRef` inside a parent `div` must be used first and then, the `RootRef.rootRef` must be provided to a specific attribute of the component to make it generate DOM *inside* the webcomponent.
-
-Examples for each specific component are shown below. Examples are only partial and based on Functional Components.
-
-#### Popover
-To keep the generated DOM inside the webcomponent:
-- Use a `RootRef`
-- Set attribute `container` of the `Popover` and provide the `rootRef`
-
-Example
-```javascript
-const domRef = React.createRef();
-
-const [anchorEl, setAnchorEl] = React.useState(null);
-const handlePopoverClick = event => {
-    setAnchorEl(event.currentTarget);
-};
-const handlePopoverClose = () => {
-    setAnchorEl(null);
-};
-const openPopover = Boolean(anchorEl);
-const domRef = React.useRef();
-
-return (
-    <div>
-        <RootRef rootRef={domRef}>
-        <Button variant="contained" color="primary" onClick={handlePopoverClick}>
-            Open Popover
-        </Button>
-        <Popover
-            open={openPopover}
-            anchorEl={anchorEl}
-            container={domRef.current}
-            onClose={handlePopoverClose}>
-            <Typography>The content of the Popover.</Typography>
-        </Popover>
-        </RootRef>
-    </div>
-);
-```
-
-#### Modal
-To keep the generated DOM inside the webcomponent:
-- Use a `RootRef`
-- Set attribute `container` of the `Modal` and provide the `rootRef`
-
-Example
-```javascript
-const domRef = React.createRef();
-
-return (
-    <div>
-        <RootRef rootRef={domRef}>
-            <Modal
-                open={true}
-                container={domRef.current}>
-                  <div style={{textAlign: 'center', backgroundColor: 'white', marginTop: '100px', marginLeft: '50%', transform: 'translateX(-50%)', width: '50%'}}>
-                    <h2 style={{color: 'black'}}>Text in a modal</h2>
-                  </div>
-            </Modal>
-        </RootRef>
-    </div>
-)
-```
-
-#### Select
-To keep the generated DOM inside the webcomponent:
-- Use a `RootRef`
-- Set attribute `container` inside `MenuProps` of the `Select` and provide the `rootRef`
-
-Example
-```javascript
-const domRef = React.createRef();
-
-return (
-    <div>
-        <RootRef rootRef={domRef}>
-            <FormControl>
-                <InputLabel>Age</InputLabel>
-                <Select style={{ width: 100 }} MenuProps={{ container: domRef.current }}>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-            </FormControl>
-        </RootRef>
-    </div>
-)
-```
-
-#### Autocomplete
-Autocomplete comes with `@material-ui/lab`.
-To keep the autocomplete list inside the webcomponent, disable the portal used with `disablePortal={true}`.
-
-Install the library first:
-```console
-yarn add @material-ui/lab
-```
-
-Example:
-```javascript
-return (
-    <Autocomplete
-        options={['movie1', 'movie2', 'film1', 'film2']}
-        style={{ width: 100 }}
-        disablePortal={true}
-        renderInput={params => <TextField {...params} label="Choice" variant="outlined" />}
-    />
-)
-```
-
-#### Menu
-To keep the generated DOM inside the webcomponent:
-- Use a `RootRef`
-- Set attribute `container` of the `Menu` and provide the `rootRef`
-
-```javascript
-const domRef = React.createRef();
-
-const [anchorMenuEl, setAnchorMenuEl] = React.useState(null);
-const handleMenuClick = (event: any) => {
-    setAnchorMenuEl(event.currentTarget);
-};
-const handleMenuClose = () => {
-    setAnchorMenuEl(null);
-};
-
-return (
-    <div>
-        <RootRef rootRef={domRef}>
-          <Button onClick={handleMenuClick}>
-            Open Menu
-          </Button>
-          <Menu
-            anchorEl={anchorMenuEl}
-            open={Boolean(anchorMenuEl)}
-            onClose={handleMenuClose}
-            container={domRef.current}>
-              <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-              <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
-          </Menu>
-        </RootRef>
-    </div>
-)
-```
+See also our [Tips for Material-UI](http://localhost:8000/additional#tips-for-material-ui)
 
 <br />
 <br />
