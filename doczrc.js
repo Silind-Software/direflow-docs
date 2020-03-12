@@ -12,4 +12,9 @@ export default {
     'Contributing',
     'Changelog'
   ],
+  themeConfig: {
+    fonts: {
+      'sans-serif': 'Arimo',
+    },
+  }
 };

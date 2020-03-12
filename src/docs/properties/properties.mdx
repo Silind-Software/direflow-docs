@@ -23,30 +23,74 @@ There are two ways that we can do that:
 When we build our Web Component in React, we want to receive these properties and attributes as *props* to our root component.  
   
 To make sure that properties and attributes of the Web Component are passed down to the React App as props, we need to provide Direflow with a set of properties and their initial values.
-This is done by passing a set of properties to `DireflowComponent` in `index.js` (or `index.tsx`).
+  
+There are three different methods to provide the properties and their initial values.  
+
+### Method 1 - defaultProps
+The easiest way is to set the as `defaultProps` on the root React component.
 
 ```javascript
-const direflowComponent = new DireflowComponent();
+const App = (props) => {
+  ...
+}
 
-const direflowProperties = {
-  componentTitle: 'Update Component',
+// The Web Component will automatically subscribe to 
+// changes on 'componentTitle' and 'sampleList'
+App.defaultProps = {
+  componentTitle: 'Awesome Component',
   sampleList: [
     'Create with React',
     'Build as Web Component',
     'Use it anywhere!',
   ],
-};
-
-direflowComponent.configure({
-  name: 'update-component',
-  useShadow: true,
-  properties: direflowProperties,
-});
-
-direflowComponent.create(App);
+}
 ```
 
-The Direflow Component will automatically observe changes in the properties provided, and React will update the UI accordingly.  
+### Method 2 - class decorator
+If you're using a class component as the root React component, you can configure properties using a decorator
+
+```javascript
+import { DireflowConfiguration } from 'direflow-component';
+
+@DireflowConfiguration({
+  properties: {
+    componentTitle: 'Awesome Component',
+    sampleList: [
+      'Create with React',
+      'Build as Web Component',
+      'Use it anywhere!',
+    ],
+  }
+})
+class App extends React.Component {
+  ...
+}
+```
+
+### Method 3 - Direflow configuration
+Finally, you can also set properties as a part of the main Direflow configuration
+
+```javascript
+import { DireflowComponent } from 'direflow-component';
+import App from './App';
+
+export default DireflowComponent.create({
+  component: App,
+  configuration: {
+    tagname: 'cool-component',
+  },
+  properties: {
+    componentTitle: 'Awesome Component',
+    sampleList: [
+      'Create with React',
+      'Build as Web Component',
+      'Use it anywhere!',
+    ],
+  }
+});
+```
+
+Or, you can mix and match between these three methods.
 
 <br />
 <br />

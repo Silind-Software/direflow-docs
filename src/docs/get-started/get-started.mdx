@@ -50,7 +50,8 @@ When you create a new Direflow Setup from `direflow-cli`, you will get a basic s
 │  │   ├── test
 │  │   │   └── App.test.js
 │  │   ├── App.css
-│  │   └── App.js
+│  │   ├── App.js
+│  │   └── index.js
 │  └── index.js
 ├── direflow-webpack.js
 ├── package.json
@@ -65,21 +66,49 @@ The public folder contains an `index.html` file.
 This is where you consume your Web Component during development.  
 
 ### index.js
-In the `index.js` file, the React App is mounted as a Web Component using the `DireflowComponent` instance.  
-```javascript
-import { DireflowComponent } from 'direflow-component';
-import App from './direflow-component/App';
+There will exists two types of essential `index.js` files.  
 
-const direflowComponent = new DireflowComponent();
-direflowComponent.configure({ name: 'awesome-component', useShadow: true });
-direflowComponent.create(App);
+#### Direflow Component index.js file
+There is an `index.js` file that belongs to each Direflow Component.  
+All Direflow Components must be placed in a folder directly inside `src`, and must all contain an `index.js` file.  
+
+In this `index.js` file, the React App is mounted as a Web Component using the `DireflowComponent` instance.  
+```javascript
+// src/cool-component/index.js
+import { DireflowComponent } from 'direflow-component';
+import App from './App';
+
+export default DireflowComponent.create({
+  component: App,
+  configuration: {
+    tagname: 'cool-component',
+  },
+});
 ```
 
 In this file you can configure your Web Component.  
-As a default, the Web Component will be given the same name as your Direflow Setup, but you can easily rename it in the `configure()` method.
+As a default, the Web Component will be given the same name as your Direflow Setup, but you can easily rename it with the `tagname` property.
   
-The configuration object can also contain _properties_ and _plugins_.  
-See more under [properties](/properties) and [plugins](/plugins).
+The configuration object can also contain _plugins_.  
+See more under [plugins](/plugins).
+  
+#### Root index.js file
+There is also a __root__ `index.js` file that is places in `src/index.js`.  
+This is the entry file of the setup, and is required to exist.  
+In this `index.js` file, it is practical to add any additional functionality or meta-logic for the setup, if needed.  
+For instance, this is a good place to hook into your Web Component one it's mounted on the DOM.
+
+```javascript
+// src/index.js
+import CoolComponent from "./cool-component";
+
+CoolComponent.then((element) => {
+   // Access DOM node when it's mounted
+  console.log('cool-component is mounted on the DOM', element);
+});
+```
+
+
 
 ### direflow-webpack.js
 This file gives you complete control over the Webpack setup.  
@@ -94,46 +123,29 @@ module.exports = (config, env) => ({
 });
 ```
 
-## Multiple Web Components
-As default, the Direflow Setup comes with one Direflow Component out-of-the-box.  
-This component is found in the folder `direflow-component`.  
-  
-Creating multiple Web Components in the same Direflow Setup is easy!  
-Create a new folder next to `direflow-component` and let that contain another React App.  
-Now simply create a new instance of `DireflowComponent` in the `index.js` file like so:  
-```javascript
-import { DireflowComponent } from 'direflow-component';
-import App from './direflow-component/App';
-import AnotherApp from './another-component/AnotherApp';
-
-const direflowComponent = new DireflowComponent();
-direflowComponent.configure({ name: 'awesome-component', useShadow: true });
-direflowComponent.create(App);
-
-const anotherComponent = new DireflowComponent();
-anotherComponent.configure({ name: 'another-component', useShadow: true });
-anotherComponent.create(AnotherApp);
-```
-
 ## Access the DOM element
 Sometimes we want to access our Web Component whenever it is mounted on the DOM.  
 The `create()` method returns a promise with a reference to the DOM element, when resolved.
 ```javascript
-const direflowComponent = new DireflowComponent();
-direflowComponent.configure({ name: 'awesome-component', useShadow: true });
-direflowComponent.create(App)
-  .then((compnent) => {
+DireflowComponent.create({
+  component: App,
+  configuration: {
+    tagname: 'cool-component',
+  },
+}).then((compnent) => {
     // Do something with the component once it's mounted on the DOM.
   });
 ```
 
 We can also use _await_ if we're inside an async function
 ```javascript
-const direflowComponent = new DireflowComponent();
-direflowComponent.configure({ name: 'awesome-component', useShadow: true });
-
 const createComponent = async () => {
-  const component = await direflowComponent.create(App);
+  const component = await DireflowComponent.create({
+    component: App,
+    configuration: {
+      tagname: 'cool-component',
+    },
+  });
   // Do something with the component once it's mounted on the DOM.
 }
 
