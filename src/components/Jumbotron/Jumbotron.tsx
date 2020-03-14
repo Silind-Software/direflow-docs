@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import {
   JumbotronContainer,
   Subtext,
@@ -14,8 +14,26 @@ import {
   SmallText,
 } from './Styles';
 import { Link } from '@reach/router';
+import latestVersion from '../../utils/latestVersion';
 
 const Jumbotron: FC = () => {
+  const [version, setVersion] = useState<string>('');
+
+  useEffect(() => {
+    (async () => {
+      const v = await latestVersion();
+      setVersion(v);
+    })();
+  }, []);
+
+  const renderVersion = () => {
+    if (!version) {
+      return null;
+    }
+
+    return `(v. ${version})`;
+  };
+
   return (
     <JumbotronContainer>
       <BigLogo />
@@ -46,7 +64,7 @@ const Jumbotron: FC = () => {
           </Highligt>{' '}
           License.{' '}
           <a href='https://github.com/Silind-Software/direflow' target='_blank'>
-            GitHub (v. 3.4.1)
+            GitHub {renderVersion()}
           </a>
         </SmallText>
       </Content>
