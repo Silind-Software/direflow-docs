@@ -20,7 +20,7 @@ const App = () => {
   const dispatch = useContext(EventContext);
 
   const handleClick = () => {
-    const event = new Event('my-event');
+    const event = new CustomEvent('my-event', { detail: 42 });
     dispatch(event);
   }
 
@@ -38,8 +38,9 @@ Now you can add a listener when you consume the component:
 ```javascript
 const component = document.querySelector('awesome-component');
 
-component.addEventListener('my-event', () => {
+component.addEventListener('my-event', (e) => {
   // handle event
+  console.log(e.detail) // 42
 });
 ```
 

@@ -36,7 +36,7 @@ plugins: [
   }
 ]
 ```
-Now we can use these fonts directly in my style-sheets:
+Now we can use these fonts directly in our stylesheets:
 ```css
 font-family: 'PT Sans', sans-serif;
 ```
@@ -88,12 +88,14 @@ For instance, if we want to use the icon pack from material design.
 
 Example
 ```javascript
-{
-  name: 'icon-loader',
-  options: {
-    packs: ['material-icons']
+plugins: [
+  {
+    name: 'icon-loader',
+    options: {
+      packs: ['material-icons']
+    }
   }
-}
+]
 ```
 
 ## polyfill-loader
@@ -101,30 +103,34 @@ The `polyfill-loader` plugin allows us to take full control over the Web Compone
 
 Example:
 ```javascript
-{
-  name: 'polyfill-loader',
-  options: {
-    use: {
-      sd: false,
-      ce: true,
+plugins: [
+  {
+    name: 'polyfill-loader',
+    options: {
+      use: {
+        sd: false,
+        ce: true,
+      }
     }
   }
-}
+]
 ```
 This will include the ce-bundle, but exclude the sd-bundle.
 
 We can also specify your own source, if needed:
 ```javascript
-{
-  name: 'polyfill-loader',
-  options: {
-    use: {
-      sd: 'https://cdn.your.own.source/webcomponents-sd.js',
-      ce: 'https://cdn.your.own.source/webcomponents-ce.js',
-      adapter: 'https://cdn.your.own.source/custom-elements-es5-adapter.js'
+plugins: [
+  {
+    name: 'polyfill-loader',
+    options: {
+      use: {
+        sd: 'https://cdn.your.own.source/webcomponents-sd.js',
+        ce: 'https://cdn.your.own.source/webcomponents-ce.js',
+        adapter: 'https://cdn.your.own.source/custom-elements-es5-adapter.js'
+      }
     }
   }
-}
+]
 ```
 You can read more about the origin of this plugin in [this issue](https://github.com/Silind-Software/direflow/issues/18).
 
@@ -140,10 +146,6 @@ plugins: [
 ]
 ```
 Now, just install `styled-components` in your Direflow Setup, and you're ready to go.
-```console
-yarn add styled-components
-```
-or
 ```console
 npm install styled-components
 ```
@@ -161,13 +163,9 @@ plugins: [
 ```
 Now, just install `material-ui` in your Direflow Setup, and you're ready to go.
 ```console
-yarn add @material-ui/core
-```
-or
-```console
 npm install @material-ui/core
 ```
-See also our [Tips for Material-UI](http://localhost:8000/additional#tips-for-material-ui)
+See also our [Tips for Material-UI](https://direflow.io/guides-and-tips#tips-for-material-ui)
 
 <br />
 <br />

@@ -24,8 +24,8 @@ A folder will be created at your current location.
 Now, cd into your new project and use the following commands
 ```console
 cd <project-folder>
-yarn install
-yarn start
+npm install
+npm start
 ```
 Your Direflow Setup will start running on `localhost:3000` and your browser opens a new window  
 <br />
@@ -53,6 +53,7 @@ When you create a new Direflow Setup from `direflow-cli`, you will get a basic s
 │   │       ├── App.css
 │   │       ├── App.js
 │   │       └── index.js
+│   ├── component-exports.js
 │   └── index.js
 ├── direflow-webpack.js
 ├── package.json
@@ -109,7 +110,23 @@ CoolComponent.then((element) => {
 });
 ```
 
+### component-exports.js
+This file is meant to build a regular React component library out of our setup.  
+If we need to export our Direflow Components as regular React components rather than building them as Web Components, we can use `component-exports.js`.
 
+We export all components we need in our React component library here:
+```javascript
+import CoolComponent from './direflow-components/cool-component/App';
+import AwesomeComponent from './direflow-components/awesome-component/App';
+
+export {
+  CoolComponent,
+  AwesomeComponent,
+}
+```
+
+In this way, we can maintain both a React component library to consume in another React application, and a Web Component library to consume anywhere else.  
+All based on the same "source of truth".
 
 ### direflow-webpack.js
 This file gives you complete control over the Webpack setup.  
@@ -156,30 +173,49 @@ createComponent();
 ## Developing
 During development of your Direflow Components, you can start the component on development server by running
 ```console
-yarn start
-```
-or
-```console
 npm start
 ```
 
 ## Build
 Build your Direflow Components by running the command
 ```console
-yarn build
-```
-or 
-```console
 npm run build
 ```
-
 This will create a `/build` folder containing a `direflowBundle.js` file.  
+
 In order to use your Web Component, simply import this file in a project, and use your Web Component as:
 ```html
 <script src="./direflowBundle.js"></script>
 
 <awesome-component></awesome-component>
 ```
+
+## Build React component library
+Build your React component library by running the command
+```console
+npm run build:lib
+```
+This will create a `/lib` folder containing the React component library.
+
+Add a field to package.json:
+```json
+"main": "lib/component-exports.js"
+```
+
+Now you can publish the React component library using:
+```console
+npm publish
+```
+
+> You may experience a well-known issue with React hooks and multiple instances of React.  
+  If you're using hooks in your React components, you want to move `react` and `react-dom` dependencies to `"peerDependencies"` in package.json:
+  ```json
+  "peerDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  }
+  ```
+
 
 <br />
 <br />
