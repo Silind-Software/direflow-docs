@@ -1,105 +1,64 @@
 export default {
   plain: {
-    color: 'rgb(171, 178, 191)',
+    color: '#a9b7c6',
     backgroundColor: '#282C34',
     borderRadius: '10px',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    fontFamily: "Consolas, Monaco, 'Andale Mono', monospace",
   },
   styles: [
+    { types: ['comment'], style: { color: '#808080' } },
+    { types: ['prolog'], style: { color: '#808080' } },
+    { types: ['cdata'], style: { color: '#808080' } },
+    { types: ['delimiter'], style: { color: '#cc7832' } },
+    { types: ['boolean'], style: { color: '#cc7832' } },
+    { types: ['keyword'], style: { color: '#cc7832' } },
+    { types: ['selector'], style: { color: '#cc7832' } },
+    { types: ['important'], style: { color: '#cc7832' } },
+    { types: ['atrule'], style: { color: '#cc7832' } },
+    { types: ['operator'], style: { color: '#a9b7c6' } },
+    { types: ['punctuation'], style: { color: '#a9b7c6' } },
+    { types: ['attr-name'], style: { color: '#a9b7c6' } },
+    { types: ['tag'], style: { color: '#e8bf6a' } },
+    { types: ['tag .punctuation'], style: { color: '#e8bf6a' } },
+    { types: ['doctype'], style: { color: '#e8bf6a' } },
+    { types: ['builtin'], style: { color: '#e8bf6a' } },
+    { types: ['entity'], style: { color: '#6897bb' } },
+    { types: ['number'], style: { color: '#6897bb' } },
+    { types: ['symbol'], style: { color: '#6897bb' } },
+    { types: ['property'], style: { color: '#9876aa' } },
+    { types: ['constant'], style: { color: '#9876aa' } },
+    { types: ['variable'], style: { color: '#9876aa' } },
+    { types: ['string'], style: { color: '#6a8759' } },
+    { types: ['char'], style: { color: '#6a8759' } },
+    { types: ['attr-value'], style: { color: '#a5c261' } },
+    { types: ['attr-value .punctuation'], style: { color: '#a5c261' } },
+    { types: ['attr-value .punctuation:first-child'], style: { color: '#a9b7c6' } },
+    { types: ['url'], style: { color: '#287bde', textDecoration: 'underline' } },
+    { types: ['function'], style: { color: '#ffc66d' } },
+    { types: ['regex'], style: { background: '#364135' } },
+    { types: ['bold'], style: { fontWeight: 'bold' } },
+    { types: ['italic'], style: { fontStyle: 'italic' } },
+    { types: ['inserted'], style: { background: '#294436' } },
+    { types: ['deleted'], style: { background: '#484a4a' } },
+    { types: ['code.language-css .token.property'], style: { color: '#a9b7c6' } },
     {
-      types: ['changed'],
-      style: {
-        color: 'rgb(162, 191, 252)',
-        fontStyle: 'italic',
-      },
+      types: ['code.language-css .token.property + .token.punctuation'],
+      style: { color: '#a9b7c6' },
+    },
+    { types: ['code.language-css .token.id'], style: { color: '#ffc66d' } },
+    { types: ['code.language-css .token.selector > .token.class'], style: { color: '#ffc66d' } },
+    {
+      types: ['code.language-css .token.selector > .token.attribute'],
+      style: { color: '#ffc66d' },
     },
     {
-      types: ['deleted'],
-      style: {
-        color: 'rgba(239, 83, 80, 0.56)',
-        fontStyle: 'italic',
-      },
+      types: ['code.language-css .token.selector > .token.pseudo-class'],
+      style: { color: '#ffc66d' },
     },
     {
-      types: ['inserted', 'attr-name'],
-      style: {
-        color: 'rgb(173, 219, 103)',
-        fontStyle: 'italic',
-      },
-    },
-    {
-      types: ['comment'],
-      style: {
-        color: 'rgb(99, 119, 119)',
-        fontStyle: 'italic',
-      },
-    },
-    {
-      types: ['string', 'url'],
-      style: {
-        color: 'rgb(173, 219, 103)',
-      },
-    },
-    {
-      types: ['variable'],
-      style: {
-        color: 'rgb(214, 222, 235)',
-      },
-    },
-    {
-      types: ['number'],
-      style: {
-        color: 'rgb(247, 140, 108)',
-      },
-    },
-    {
-      types: ['builtin', 'char', 'constant', 'function'],
-      style: {
-        color: 'rgb(130, 170, 255)',
-      },
-    },
-    {
-      types: ['punctuation'],
-      style: {
-        color: 'rgb(199, 146, 234)',
-      },
-    },
-    {
-      types: ['selector', 'doctype'],
-      style: {
-        color: 'rgb(199, 146, 234)',
-        fontStyle: 'italic',
-      },
-    },
-    {
-      types: ['class-name'],
-      style: {
-        color: 'rgb(255, 203, 139)',
-      },
-    },
-    {
-      types: ['tag', 'operator', 'keyword'],
-      style: {
-        color: 'rgb(127, 219, 202)',
-      },
-    },
-    {
-      types: ['boolean'],
-      style: {
-        color: 'rgb(255, 88, 116)',
-      },
-    },
-    {
-      types: ['property'],
-      style: {
-        color: 'rgb(128, 203, 196)',
-      },
-    },
-    {
-      types: ['namespace'],
-      style: {
-        color: 'rgb(178, 204, 214)',
-      },
+      types: ['code.language-css .token.selector > .token.pseudo-element'],
+      style: { color: '#ffc66d' },
     },
   ],
-}
+};

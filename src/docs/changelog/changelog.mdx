@@ -29,9 +29,17 @@ _2020-03-13_
 - Configure Direflow Components using `defaultProps` and `@DireflowConfiguration` decorator [#57](https://github.com/Silind-Software/direflow/issues/57)
 - Create NPM-ready boilerplate [#56](https://github.com/Silind-Software/direflow/issues/56)
 - Option to use `async` when using `external-loader` plugin [#58](https://github.com/Silind-Software/direflow/issues/58)
+- Build a regular React component library from Direflow Setup.
+- Ability to provide custom CDN for `React` and `ReactDOM` modules, thus ability to disable lazyloading.
 
 #### Changed
 - New structure for configuring a Direflow Component
+- Added new package: `direflow-scripts`. Moved everything webpack and build-related to this package.
+
+### Fixed
+- Issues with Material UI [#106](https://github.com/Silind-Software/direflow/issues/106) and [#105](https://github.com/Silind-Software/direflow/issues/105)
+- Styled Components version 5> not rendering [#94](https://github.com/Silind-Software/direflow/issues/94)
+- Path not resolving properly on Windows OS [#92](https://github.com/Silind-Software/direflow/issues/92)
 
 ### 3.3
 _2020-02-28_
@@ -123,7 +131,7 @@ _2019-12-03_
 
 #### Added
 - Support for Styled Components
-- Using `yarn build --vendor` to chunk build into a `vender.js` and a `direflowBundle.js` file
+- Using `npm run build --vendor` to chunk build into a `vender.js` and a `direflowBundle.js` file
 
 ## Initial commit
 _2019-11-01_

@@ -8,7 +8,7 @@ import { Link } from '@reach/router';
 import { Button } from '../../components/Jumbotron/Styles';
 
 ## Properties and attributes
-One of the cool thing about Web Components is that we can pass in data that the Web Component can use.  
+One of the cool things about Web Components is that we can pass in data that the Web Component can use.  
 There are two ways that we can do that:
 - By setting an attribute:
   ```html
@@ -27,7 +27,7 @@ To make sure that properties and attributes of the Web Component are passed down
 There are three different methods to provide the properties and their initial values.  
 
 ### Method 1 - defaultProps
-The easiest way is to set the as `defaultProps` on the root React component.
+The easiest way is to set them as `defaultProps` on the root React component.
 
 ```javascript
 const App = (props) => {
@@ -71,7 +71,7 @@ class App extends React.Component {
 > Set `"experimentalDecorators": true` in tsconfig.json  
 > &nbsp;  
 > **JavaScript**  
-> - Run `yarn add babel-plugin-transform-decorators-legacy --dev`  
+> - Run `npm run babel-plugin-transform-decorators-legacy --dev`  
 > - Add to package.json:
 >  ```
 >  "babel": {

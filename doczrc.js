@@ -9,12 +9,8 @@ export default {
     'Styling',
     'Plugins',
     'Additional',
+    'Guides & tips',
     'Contributing',
     'Changelog'
-  ],
-  themeConfig: {
-    fonts: {
-      'sans-serif': 'Arimo',
-    },
-  }
+  ]
 };
