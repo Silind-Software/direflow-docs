@@ -47,7 +47,7 @@ export const TextContent = styled.div`
 
 export const BottomLine = styled.div`
   width: 100%;
-  height: 35px;
+  height: 125px;
   line-height: 35px;
   background-color: white;
   border-top: 1px solid #e3e7f7;
@@ -56,10 +56,10 @@ export const BottomLine = styled.div`
   color: #888;
   transition: 0.3s;
   margin-top: 25px;
-
-  &:hover {
-    color: #38559e;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const FooterButton = styled(SecondaryButton)`

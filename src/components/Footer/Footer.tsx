@@ -23,9 +23,8 @@ const Footer: FC = () => {
         </Link>
       </FooterContent>
       <BottomLine>
-        <a href='https://github.com/Silind-Software' target='_blank'>
-          Silind Software
-        </a>
+        <span>Direflow &copy; {new Date().getFullYear()}</span>
+        <span>Silind Ltd</span>
       </BottomLine>
     </FooterContainer>
   );

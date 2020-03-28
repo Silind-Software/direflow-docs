@@ -80,6 +80,17 @@ import otherStyles from './OtherStyles.css';
 export default withStyles([styles, otherStyles])(App);
 ```
 
+## Scoped vs. non-scoped
+As a default, the `<Styled>` component using scoped styles to avoid global CSS name collisions.  
+If needed, this behavior can be disabled:
+
+```javascript
+<Styled styles={styles} scoped={false}>
+...
+```
+
+This may be convenient if you're importing third-party stylesheets, e.g. bootstrap.
+
 ## Styling alternatives
 
 #### Sass / scss
