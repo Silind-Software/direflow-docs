@@ -23,7 +23,6 @@ export const Column = styled.div`
   }
 `;
 
-
 export const ExampleContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -35,16 +34,32 @@ export const ExampleContainer = styled.div`
   & > crypto-cart {
     width: 90%;
     max-width: 600px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   & > crypto-items {
     width: 90%;
     max-width: 600px;
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
-  & > custom-button {
-    margin: 10px 0;
+  & > * {
+    margin: 15px 0;
+  }
+`;
+
+export const PickerExamples = styled.div`
+  ${center};
+  flex-direction: column;
+  & > * {
+    margin: 5px 0;
+  }
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    align-items: flex-start;
+    & > * {
+      margin: 0 25px;
+    }
   }
 `;

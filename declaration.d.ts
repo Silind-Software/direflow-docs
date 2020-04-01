@@ -7,6 +7,9 @@ declare namespace JSX {
   interface IntrinsicElements {
     'crypto-cart',
     'crypto-items',
-    'custom-button'
+    'custom-button',
+    'custom-radio',
+    'custom-checkbox',
+    'custom-slider'
   }
 }

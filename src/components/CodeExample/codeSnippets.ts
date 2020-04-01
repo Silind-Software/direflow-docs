@@ -20,14 +20,17 @@ DireflowComponent.create({
     menuName: 'Use as native HTML',
     language: 'html',
     snippet: `<head>
-  // Import bundle
-  <script src='https://direflow.io/demo-bundle.js' />
+  // Import bundles
+  <script src='https://direflow.io/crypto-widgets.js' />
+  <script src='https://direflow.io/ui-library.js' />
 </head>
 
 <body>
   // Use directly in browser
   <crypto-cart />
   <crypto-items />
+
+  <custom-slider />
 
   // Add attributes
   <custom-button text="Click me" type="primary" size="small" />

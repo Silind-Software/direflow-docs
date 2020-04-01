@@ -22,7 +22,8 @@ const AppHeader: FC<IProps> = (props) => {
       />
       <meta property='og:description' content={description} />
 
-      <script src='./demo-bundle.js' />
+      <script src='./crypto-widgets.js' />
+      <script src='./ui-library.js' />
 
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:site' content='@silindsoftware' />

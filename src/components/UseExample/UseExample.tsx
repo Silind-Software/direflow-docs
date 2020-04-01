@@ -1,6 +1,6 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
 import useScrollDisplay from 'use-scroll-display';
-import { Column, Container, ExampleContainer } from './Styles';
+import { Column, Container, ExampleContainer, PickerExamples } from './Styles';
 
 const UseExample: FC = () => {
   const [cartList, setCartList] = useState<any[]>([
@@ -39,8 +39,51 @@ const UseExample: FC = () => {
   const cartRef = useRef(null);
   const itemsRef = useRef(null);
 
+  const radioButtonsRef = useRef(null);
+  const checkboxRef = useRef(null);
+
   const [widgetsExampleRef] = useScrollDisplay();
   const [uiLibraryExampleRef] = useScrollDisplay();
+
+  useEffect(() => {
+    if (!radioButtonsRef.current) {
+      return;
+    }
+
+    radioButtonsRef.current.options = [
+      {
+        label: 'Option A',
+        value: 'option-a',
+      },
+      {
+        label: 'Option B',
+        value: 'option-b',
+        selected: true,
+      },
+      {
+        label: 'Option C',
+        value: 'option-c',
+      },
+    ];
+  }, [radioButtonsRef.current]);
+
+  useEffect(() => {
+    if (!checkboxRef.current) {
+      return;
+    }
+
+    checkboxRef.current.options = [
+      {
+        label: 'Option A',
+        value: 'option-a',
+        selected: true,
+      },
+      {
+        label: 'Option B',
+        value: 'option-b',
+      },
+    ];
+  }, [checkboxRef.current]);
 
   useEffect(() => {
     if (!cartRef.current) {
@@ -99,12 +142,20 @@ const UseExample: FC = () => {
       </Column>
       <Column ref={uiLibraryExampleRef}>
         <ExampleContainer>
-          <custom-button size='small' text='Click this small button' />
-          <custom-button type='primary' size='small' text='Click this primary button' />
-          <custom-button type='info' size='medium' text='Click this info button' />
-          <custom-button type='success' size='medium' text='Click this success button' />
-          <custom-button type='warning' size='large' text='Click this warning button' />
-          <custom-button type='danger' size='x-large' text='Click this danger button' />
+          <custom-button size='small' type='default' theme='widget' />
+          <custom-button size='medium' type='primary' icon='github' showLoader='true' />
+          <custom-button
+            text='Log in with Google'
+            size='large'
+            type='social'
+            icon='google'
+            block='true'
+          />
+          <custom-slider />
+          <PickerExamples>
+            <custom-radio ref={radioButtonsRef} text='Choose something' />
+            <custom-checkbox ref={checkboxRef} text='Choose something' type='success' />
+          </PickerExamples>
         </ExampleContainer>
       </Column>
     </Container>

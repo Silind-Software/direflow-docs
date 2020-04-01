@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from '@reach/router';
 import {
   HeaderContainer,
   Logo,
@@ -11,9 +12,9 @@ import {
 const DoczHeader: FC = () => {
   return (
     <HeaderContainer>
-      <a href='https://direflow.io'>
+      <Link to='/'>
         <Logo /> <div>Direflow</div>
-      </a>
+      </Link>
       <IconContainer>
         <GitHubIcon href='https://github.com/Silind-Software/direflow' target='_blank' />
         <TwitterIcon href='https://twitter.com/direflowjs' target='_blank' />

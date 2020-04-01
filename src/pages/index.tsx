@@ -35,8 +35,8 @@ const IndexPage = () => {
       <FullSection>
         <Section ref={howItsUsed} style={{ opacity: 0 }}>
           <Headline>How it's used</Headline>
-          <SubText>Create rich and completely self-contained Micro Frontends</SubText>
-          <SubText>Build entire UI Libraries and use it across any UI frameworks & libraries</SubText>
+          <SubText>✔️ Create rich and completely self-contained Micro Frontends</SubText>
+          <SubText>✔️ Build entire UI Libraries and use it across any UI frameworks & libraries</SubText>
           <UseExample />
         </Section>
       </FullSection>
