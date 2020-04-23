@@ -68,7 +68,7 @@ const UseExample: FC = () => {
   }, [radioButtonsRef.current]);
 
   useEffect(() => {
-    if (!checkboxRef.current) {
+    if (!checkboxRef) {
       return;
     }
 
@@ -83,7 +83,7 @@ const UseExample: FC = () => {
         value: 'option-b',
       },
     ];
-  }, [checkboxRef.current]);
+  }, [checkboxRef]);
 
   useEffect(() => {
     if (!cartRef.current) {
@@ -151,10 +151,17 @@ const UseExample: FC = () => {
             icon='google'
             block='true'
           />
+          <custom-button
+            text='Log in with GitHub'
+            size='x-large'
+            type='info'
+            icon='github'
+            block='true'
+          />
           <custom-slider />
           <PickerExamples>
             <custom-radio ref={radioButtonsRef} text='Choose something' />
-            <custom-checkbox ref={checkboxRef} text='Choose something' type='success' />
+            <custom-checkbox ref={checkboxRef} text='Check something' type='success' />
           </PickerExamples>
         </ExampleContainer>
       </Column>
