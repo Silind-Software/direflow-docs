@@ -137,23 +137,29 @@ Start by installing
 npm install abortcontroller-polyfill proxy-polyfill
 ```
 
-Now add the polyfills to the very top of your index.js or index.tsx file
+Now add the polyfills to `direflow-webpack.js`:
 
 ```javascript
-// Add these polyfills for ie 11
-import 'react-app-polyfill/ie11';
-import 'react-app-polyfill/stable';
-import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only';
-import 'proxy-polyfill';
+const { webpackConfig } = require('direflow-scripts');
 
-import { DireflowComponent } from 'direflow-component';
-import App from './App';
+// IE 11 polyfills
+function configWithIE11(config) {
+  config.entry = [
+    path.join(__dirname, 'node_modules', 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'),
+    path.join(__dirname, 'node_modules', 'proxy-polyfill'),
+    path.join(__dirname, 'node_modules', 'react-app-polyfill/ie11'),
+    path.join(__dirname, 'node_modules', 'react-app-polyfill/stable'),
+    ...config.entry];
+  return config;
+}
 
-export default DireflowComponent.create({
-  component: App,
-  configuration: {
-    tagname: 'cool-component',
-  },
+/**
+ * Webpack configuration for Direflow Component
+ * Additional webpack plugins / overrides can be provided here
+ */
+module.exports = (config, env) => ({
+  ...configWithIE11(webpackConfig(config, env)),
+  // Add your own webpack config here (optional)
 });
 ```
 
