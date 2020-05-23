@@ -73,13 +73,63 @@ plugins: [
       paths: [
         {
           src: 'https://code.jquery.com/jquery-3.3.1.slim.min.js',
-          async: true,
+          async: true, // <- this js file will be loaded async
         },
         'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
       ],
     }
   }
 ];
+```
+
+You can override the default behavior of where the resource will be injected
+by using the `useHead` option.
+
+> ℹ️ Default behavior:  
+> `css` files will be injected into the shadow-root.  
+> `js` files will be injected into the `head` tag of the host application.
+
+Example:
+```javascript
+plugins: [
+  {
+    name: 'external-loader',
+    options: {
+      paths: [
+        {
+          src: 'https://code.jquery.com/jquery-3.3.1.slim.min.js',
+          useHead: false, // <-- js will be injected into the shadow-root
+        },
+        {
+          src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
+          useHead: true, // <- css will be added to 'head' of the host application
+        },
+      ],
+    }
+  }
+];
+```
+
+### useExternalSource hook
+As an addition to `external-loader`, we can use the `useExternalSource` hook, to hook
+into the loading state of an external source.  
+
+useExternalSource returns a state with value `true` or `false`, depending on whether the resource has fully loaded or not.
+
+Example:
+```javascript
+const App = (props) => {
+  // Determine if the resource has loaded
+  const hasLoaded = useExternalSource('https://code.jquery.com/jquery-3.3.1.slim.min.js');
+  
+  if (!hasLoaded) {
+    return null;
+  }
+
+  return (
+    ...
+  );
+}
 ```
 
 ## icon-loader
