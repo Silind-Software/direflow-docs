@@ -163,6 +163,162 @@ return (
 <br />
 <br />
 
+## Direflow and Redux
+It can be beneficial to use a shared Redux Store accross multiple Direflow Components in a setup.
+
+In this example we will have one Direflow Component with an input field and an "Add item" button. We call that `item-add-component`.
+We will have another Direflow Component that displays a list of added items. We call that `item-list-component`.
+  
+Now we want to use Redux to keep this list in sync between the two Direflow Components.  
+Our folder-structure will look similar to this:
+
+```
+.
+├── public
+│   └── index.html
+├── src
+│   ├── direflow-components
+│   │   ├── item-add-component
+│   │   │   ├── App.js
+│   │   │   └── index.js
+│   │   └── item-list-component
+│   │       ├── App.js
+│   │       └── index.js
+│   └── index.js
+├── direflow-webpack.js
+└── package.json
+```
+
+The `item-add-component` will look like this.  
+It simply contains an input field and a button to click.  
+Notice how we dispatch a `CustomEvent` with the input as the `detail` when the button is clicked.  
+This is the 'payload' of our event.
+```javascript
+const App = () => {
+  const [input, setInput] = useState("");
+  const dispatch = useContext(EventContext);
+
+  const handleClick = () => {
+    if (!input) {
+      return;
+    }
+
+    const event = new CustomEvent("add-item", { detail: input });
+    dispatch(event);
+  };
+
+  return (
+    <div>
+      <input value={input} onChange={e => setInput(e.target.value)} />
+      <button onClick={handleClick}>Add Item</button>
+    </div>
+  );
+};
+```
+
+
+The `item-list-component` will look like this.
+The item list is recieved as a prop `sampleList`. We iterate through it and render the items.  
+  
+Again we are dispatching a `CustomEvent` with a `detail` when we click an item.
+This enables us to remove an item from the list.
+```javascript
+const App = props => {
+  const dispatch = useContext(EventContext);
+
+  const handleRemoveItem = sample => {
+    const event = new CustomEvent("remove-item", { detail: sample });
+    dispatch(event);
+  };
+
+  const renderSampleList = props.sampleList.map(sample => (
+    <div
+      key={sample}
+      className="list-item"
+      onClick={() => handleRemoveItem(sample)}
+    >
+      → {sample}
+    </div>
+  ));
+
+  return (
+    <div>
+      <div>{props.componentTitle}</div>
+      <div>{renderSampleList}</div>
+    </div>
+  );
+};
+```
+
+Now, head to the main `index.js` file.  
+This is were the Redux magic will happen.  
+Since the React apps becomes Web Components when consumed in a host application, we need to put the Redux login "in between".  
+  
+Remember how we can "hook into" the Direflow Components lifecycle and access the DOM element once loaded in the host application? (See here: [get-started#access-the-dom-element](/get-started#access-the-dom-element)  
+We will be using this ability in combination with Redux.  
+
+Let's start by importing the Promises that are return from `DireflowComponent.create` for our two Direflow Components, thus importing `createStore` from Redux.
+```javascript
+import AddComponent from "./direflow-components/item-add-component";
+import ListComponent from "./direflow-components/item-list-component";
+import { createStore } from "redux";
+```
+> Remember to export them in your Direflow Components' index files.
+
+Then we create our reducer and the Redux Store:
+```javascript
+const reducer = (state = [], action) => {
+  switch (action.type) {
+    case "add":
+      return [...state, action.item];
+    case "remove":
+      return state.filter(s => s !== action.item);
+    default:
+      return state;
+  }
+};
+
+const store = createStore(reducer);
+```
+
+Next, we want to wait for the `add-item-component` to be loaded in the DOM, and then subscribe to the 'add-item' event.  
+Since we carry the item value as a `detail`, we can now dispatch an `add` action to update the Redux Store.
+```javascript
+AddComponent.then(element => {
+  element.addEventListener("add-item", e => {
+    const currentList = store.getState();
+
+    if (currentList.includes(e.detail)) {
+      return;
+    }
+
+    store.dispatch({ type: "add", item: e.detail });
+  });
+});
+```
+
+We do the very same for the `item-list-component`.  
+As an addition, we also need to subscribe to the Redux Store and pass the updated list to the `item-list-component` as a property.
+
+```javascript
+ListComponent.then(element => {
+  element.addEventListener("remove-item", e => {
+    store.dispatch({ type: "remove", item: e.detail });
+  });
+
+  store.subscribe(() => {
+    const currentList = store.getState();
+    element.sampleList = currentList;
+  });
+});
+```
+
+That's it! Everything should now be in sync.  
+Check out the working example here on Code Sandbox: [codesandbox.io/s/redux-example-olkjn](https://codesandbox.io/s/redux-example-olkjn)
+
+<br />
+<br />
+
 <span style="display: flex; justify-content: center">
   <Link to='/contributing'>
     <Button>→ Contributing</Button>
