@@ -24,7 +24,6 @@ const Footer: FC = () => {
       </FooterContent>
       <BottomLine>
         <span>Direflow &copy; {new Date().getFullYear()}</span>
-        <span>Silind Ltd</span>
       </BottomLine>
     </FooterContainer>
   );
