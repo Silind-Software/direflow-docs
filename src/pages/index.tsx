@@ -12,7 +12,6 @@ import UseExample from '../components/UseExample/UseExample';
 import { Button } from '../components/Jumbotron/Styles';
 import { Link } from '@reach/router';
 import CodeExample from '../components/CodeExample/CodeExample';
-import BlackLivesMatter from '../components/BlackLivesMatter/BlackLivesMatter';
 import '../styles/main.css';
 
 const IndexPage = () => {
@@ -23,7 +22,6 @@ const IndexPage = () => {
   return (
     <>
       <AppHeader />
-      <BlackLivesMatter />
       <Header />
       <Jumbotron />
       <FullSection color='#f1f5fa'>
