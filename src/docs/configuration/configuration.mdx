@@ -1,0 +1,94 @@
+---
+name: 'Configuration'
+route: '/configuration'
+edit: false
+---
+
+import { Link } from '@reach/router';
+import { Button } from '../../components/Jumbotron/Styles';
+
+## Configuration
+
+We can configure Direflow's build process and other global configurations in `direflow-config.json`.
+
+```json
+{
+  "build": {
+    "filename": "direflowBundle.js",
+    "chunkFilename": "chunk.js",
+    "emitSourceMap": true,
+    "emitIndexHTML": true,
+    "emitAll": true,
+    "split": true,
+    "vendor": true
+  },
+  "modules": {
+    "react": "https://your-custom-cdn.com/react.js",
+    "reactDOM": "https://your-custom-cdn.com/react-dom.js"
+  }
+}
+```
+
+### `filename`
+The filename of the main bundle.  
+Defaults to `direflowBundle.js`.
+
+> ⚠️ This does not work using the `split` option.
+
+### `chunkFilename`
+The filename of the vendor bundle.  
+Defaults to `vendor.js`.
+
+### `emitSourceMap`
+When enabling this option, all source map files will be emitted along with the main bundle.
+
+### `emitIndexHTML`
+When enabling this option, the public `index.html` file will be emitted along with the main bundle.
+
+### `emitAll`
+When enabling this option, all static files will be emitted.  
+Direflow is build upon *create-react-app*, so a lot of files unuasable with Direflow will be emitted.  
+It's recommended to keep this option set to `false`.  
+
+### `split`
+To split your bundle into a chunk per Direflow Component, use the `split` option.
+
+This will create a build folder containing a bundle-file per Direflow Component.
+
+```
+.
+└── build
+    ├── main.js
+    ├── coolComponent.js
+    └── awesomeComponent.js
+```
+
+The `main.js` file will contain the code in your _main_ `index.js` file.  
+If the _main_ `index.js` file is empty, the `main.js` file can be excluded.
+
+### `vendor`
+When you build your Direflow Components, you can use the `vendor` option.
+This will create a build folder containing two bundle-files:
+
+```
+.
+└── build
+    ├── direflowBundle.js
+    └── vendor.js
+```
+
+`direflowBundle.js`: Will contain all source-code.  
+`vendor.js`: Will contain all third-party packages.
+
+### `react & reactDOM`
+If you want to provide your own React and ReactDOM modules.
+Provide the url on these fields.
+
+<br />
+<br />
+
+<span style="display: flex; justify-content: center">
+  <Link to='/additional'>
+    <Button>→ Additional</Button>
+  </Link>
+</span>
