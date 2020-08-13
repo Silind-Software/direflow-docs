@@ -154,21 +154,9 @@ DireflowComponent.create({
     // Do something with the component once it's mounted on the DOM.
   });
 ```
-
-We can also use _await_ if we're inside an async function
-```javascript
-const createComponent = async () => {
-  const component = await DireflowComponent.create({
-    component: App,
-    configuration: {
-      tagname: 'cool-component',
-    },
-  });
-  // Do something with the component once it's mounted on the DOM.
-}
-
-createComponent();
-```
+> ℹ️ Note that DireflowComponent.create actually returns a `DireflowPromiseAlike` which wraps a Promise.  
+> This allows the `then` method to be called multiple times.  
+> It also means that there's no `catch` method, and that 'async/await' cannot be used.
 
 ## Developing
 During development of your Direflow Components, you can start the component on development server by running
