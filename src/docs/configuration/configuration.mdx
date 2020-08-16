@@ -25,6 +25,11 @@ We can configure Direflow's build process and other global configurations in `di
   "modules": {
     "react": "https://your-custom-cdn.com/react.js",
     "reactDOM": "https://your-custom-cdn.com/react-dom.js"
+  },
+  "polyfills": {
+    "sd": "https://cdn.your.own.source/webcomponents-sd.js",
+    "ce": "https://cdn.your.own.source/webcomponents-ce.js",
+    "adapter": "https://cdn.your.own.source/custom-elements-es5-adapter.js"
   }
 }
 ```
@@ -83,6 +88,10 @@ This will create a build folder containing two bundle-files:
 ### `react & reactDOM`
 If you want to provide your own React and ReactDOM modules.
 Provide the url on these fields.
+
+### `polyfills -> sd, ce and adapter`
+Allows us to take full control over the Web Components polyfills.  
+Value can either be `false` to disable lazyloading of the polyfills, or a path to a URL from where the polyfill should be loaded.
 
 <br />
 <br />
