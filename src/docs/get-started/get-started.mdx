@@ -72,11 +72,14 @@ There will exists two types of essential `index.js` files.
 
 #### Direflow Component index.js file
 There is an `index.js` file that belongs to each Direflow Component.  
-All Direflow Components must be placed in a folder directly inside the folder `direflow-components`.  
+All Direflow Components must each be placed in a folder directly inside the folder `direflow-components`.  
+
+> ℹ️ You can change the path to the folder `direflow-components` in the `direflow-config.json` file.  
+> See how to do that [here](/configuration).
 
 In this `index.js` file, the React App is mounted as a Web Component using the `DireflowComponent` instance.  
 ```javascript
-// src/cool-component/index.js
+// src/direflow-components/cool-component/index.js
 import { DireflowComponent } from 'direflow-component';
 import App from './App';
 

@@ -14,6 +14,7 @@ We can configure Direflow's build process and other global configurations in `di
 ```json
 {
   "build": {
+    "componentPath": "direflow-component",
     "filename": "direflowBundle.js",
     "chunkFilename": "chunk.js",
     "emitSourceMap": true,
@@ -32,6 +33,20 @@ We can configure Direflow's build process and other global configurations in `di
     "adapter": "https://cdn.your.own.source/custom-elements-es5-adapter.js"
   }
 }
+```
+
+### `componentPath`
+The path, relative to `src`, of the folder containing Direflow Components.  
+This folder must contain a flat list of subdirectories, each containing a Direflow Component.  
+```
+└── src
+    └── direflow-components
+        ├──── some-component
+        │   ├── App.js
+        │   └── index.js
+        └──── another-component
+            ├── App.js
+            └── index.js
 ```
 
 ### `filename`
