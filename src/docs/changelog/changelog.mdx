@@ -15,8 +15,28 @@ https://keepachangelog.com/en/1.0.0/
 
 ## 3
 
+### 3.5
+_2020-08-20_  
+[Direflow v3.5 Release Notes](https://medium.com/@simonlhoiberg/direflow-v3-5-release-notes-b485debde26e)
+
+#### Added
+- Support for `direflow-config.json`. See the documentation [here](/configuration)
+- Ability to include additional static files in build [#157](https://github.com/Silind-Software/direflow/issues/157)
+- Support for serialized data via attributes [#127](https://github.com/Silind-Software/direflow/issues/127)
+- Parsing boolean values from attributes [#125](https://github.com/Silind-Software/direflow/issues/125)
+
+#### Changed
+- A new `DireflowPromiseAlike` is returned from `DireflowComponent.create`.
+
+#### Deprecated
+*These are now supported as part of `direflow-config.json`*
+- Passing `{ filename, chunkFilename, react, reactDOM }` to webpack config function
+- Using `--split` and `--vendor` as CLI arguments
+- polyfill-loader plugin
+
 ### 3.4
-_2020-03-13_
+_2020-03-13_  
+[Direflow v3.4 Release Notes](https://medium.com/@simonlhoiberg/direflow-v3-4-0-release-notes-60e1caff3805)
 
 #### Added
 - Split Direflow Components into multiple bundles [#53](https://github.com/Silind-Software/direflow/issues/53)

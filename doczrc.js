@@ -8,6 +8,7 @@ export default {
     'Events',
     'Styling',
     'Plugins',
+    'Configuration',
     'Additional',
     'Guides & tips',
     'Contributing',

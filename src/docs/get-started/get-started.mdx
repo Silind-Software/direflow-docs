@@ -72,11 +72,14 @@ There will exists two types of essential `index.js` files.
 
 #### Direflow Component index.js file
 There is an `index.js` file that belongs to each Direflow Component.  
-All Direflow Components must be placed in a folder directly inside the folder `direflow-components`.  
+All Direflow Components must each be placed in a folder directly inside the folder `direflow-components`.  
+
+> ℹ️ You can change the path to the folder `direflow-components` in the `direflow-config.json` file.  
+> See how to do that [here](/configuration).
 
 In this `index.js` file, the React App is mounted as a Web Component using the `DireflowComponent` instance.  
 ```javascript
-// src/cool-component/index.js
+// src/direflow-components/cool-component/index.js
 import { DireflowComponent } from 'direflow-component';
 import App from './App';
 
@@ -154,21 +157,9 @@ DireflowComponent.create({
     // Do something with the component once it's mounted on the DOM.
   });
 ```
-
-We can also use _await_ if we're inside an async function
-```javascript
-const createComponent = async () => {
-  const component = await DireflowComponent.create({
-    component: App,
-    configuration: {
-      tagname: 'cool-component',
-    },
-  });
-  // Do something with the component once it's mounted on the DOM.
-}
-
-createComponent();
-```
+> ℹ️ Note that DireflowComponent.create actually returns a `DireflowPromiseAlike` which wraps a Promise.  
+> This allows the `then` method to be called multiple times.  
+> It also means that there's no `catch` method, and that 'async/await' cannot be used.
 
 ## Developing
 During development of your Direflow Components, you can start the component on development server by running
