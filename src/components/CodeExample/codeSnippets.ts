@@ -107,6 +107,27 @@ module.exports = (config, env) => ({
 });`,
   },
   {
+    menuName: 'Configure Direflow',
+    language: 'json',
+    snippet: `{
+  "build": {
+    "componentPath": "direflow-component",
+    "filename": "direflowBundle.js",
+    "emitSourceMap": true,
+    "vendor": true
+  },
+  "modules": {
+    "react": "https://your-custom-cdn.com/react.js",
+    "reactDOM": "https://your-custom-cdn.com/react-dom.js"
+  },
+  "polyfills": {
+    "sd": "https://your-custom-cdn.com/webcomponents-sd.js",
+    "ce": "https://your-custom-cdn.com/webcomponents-ce.js",
+    "adapter": "https://your-custom-cdn.com/webcomponents-ad.js"
+  }
+}`,
+  },
+  {
     menuName: 'Access the DOM node',
     language: 'javascript',
     snippet: `import { DireflowComponent } from 'direflow-component';
