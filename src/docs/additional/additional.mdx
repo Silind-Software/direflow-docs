@@ -58,6 +58,7 @@ npm install abortcontroller-polyfill proxy-polyfill
 Now add the polyfills to `direflow-webpack.js`:
 
 ```javascript
+const path = require('path');
 const { webpackConfig } = require('direflow-scripts');
 
 // IE 11 polyfills
@@ -67,7 +68,8 @@ function configWithIE11(config) {
     path.join(__dirname, 'node_modules', 'proxy-polyfill'),
     path.join(__dirname, 'node_modules', 'react-app-polyfill/ie11'),
     path.join(__dirname, 'node_modules', 'react-app-polyfill/stable'),
-    ...config.entry];
+    ...config.entry
+  ];
   return config;
 }
 
