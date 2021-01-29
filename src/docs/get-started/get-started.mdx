@@ -18,7 +18,7 @@ Now, use this command to create a new Direflow Setup
 ```console
 direflow create
 ```
-Now you can choose a name for your setup and a prefered language. Currently both JavaScript and TypeScript is supported.  
+Now you can choose a name for your setup and a preferred language. Currently both JavaScript and TypeScript is supported.  
 A folder will be created at your current location.  
   
 Now, cd into your new project and use the following commands
@@ -68,7 +68,7 @@ The public folder contains an `index.html` file.
 This is where you consume your Web Component during development.  
 
 ### index.js
-There will exists two types of essential `index.js` files.  
+There will exist two types of essential `index.js` files.  
 
 #### Direflow Component index.js file
 There is an `index.js` file that belongs to each Direflow Component.  
@@ -98,10 +98,10 @@ The configuration object can also contain _plugins_.
 See more under [plugins](/plugins).
   
 #### Main index.js file
-There is also a __main__ `index.js` file that is places in `src/index.js`.  
+There is also a __main__ `index.js` file that is placed in `src/index.js`.  
 This is the entry file of the setup, and is required to exist.  
 In this `index.js` file, it is practical to add any additional functionality or meta-logic for the setup, if needed.  
-For instance, this is a good place to hook into your Web Component one it's mounted on the DOM.
+For instance, this is a good place to hook into your Web Component once it is mounted on the DOM.
 
 ```javascript
 // src/index.js
@@ -159,7 +159,7 @@ DireflowComponent.create({
 ```
 > ℹ️ Note that DireflowComponent.create actually returns a `DireflowPromiseAlike` which wraps a Promise.  
 > This allows the `then` method to be called multiple times.  
-> It also means that there's no `catch` method, and that 'async/await' cannot be used.
+> It also means that there is no `catch` method, and that 'async/await' cannot be used.
 
 ## Developing
 During development of your Direflow Components, you can start the component on development server by running
@@ -199,7 +199,7 @@ npm publish
 ```
 
 > You may experience a well-known issue with React hooks and multiple instances of React.  
-  If you're using hooks in your React components, you want to move `react` and `react-dom` dependencies to `"peerDependencies"` in package.json:
+  If you are using hooks in your React components, you want to move `react` and `react-dom` dependencies to `"peerDependencies"` in package.json:
   ```json
   "peerDependencies": {
     "react": "16.13.1",
