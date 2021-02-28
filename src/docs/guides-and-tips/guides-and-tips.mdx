@@ -21,8 +21,6 @@ To keep the generated DOM inside the Web Component:
 
 Example
 ```jsx
-const domRef = React.createRef();
-
 const [anchorEl, setAnchorEl] = React.useState(null);
 const handlePopoverClick = event => {
     setAnchorEl(event.currentTarget);
@@ -59,7 +57,7 @@ To keep the generated DOM inside the Web Component:
 
 Example
 ```jsx
-const domRef = React.createRef();
+const domRef = React.useRef();
 
 return (
   <div>
