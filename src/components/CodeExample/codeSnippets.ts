@@ -88,7 +88,7 @@ const App = () => {
 const cryptoItems = document.querySelector('crypto-items');
 
 // Add event listener and subscribe to custom event
-cryptoItems.addEventListener('my-event' (e) => {
+cryptoItems.addEventListener('my-event', (e) => {
 
   // Handle event
 });`,
