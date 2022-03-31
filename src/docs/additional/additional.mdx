@@ -45,6 +45,30 @@ DireflowComponent.create({
 });
 ```
 
+## Anonymous Slot
+The Web Component Standard supports slot.
+In order to enable the anonymous slot, set the useAnonymousSlot property to `true` in the configuration. 
+So you can distribute your content(text or embed component) to a <slot></slot> tag.
+
+
+```javascript
+// src/cool-component/index.js
+DireflowComponent.create({
+  component: App,
+  configuration: {
+    tagname: 'cool-component',
+    useShadow: true,
+    useAnonymousSlot: true,
+  },
+});
+```
+```html
+<cool-component>
+  <div>I will be distributed to cool-component's inner slot tag.</div>
+</cool-component>
+```
+
+
 ## IE 11 Support
 
 In order to support IE 11, you will need to import the necessary polyfills.
