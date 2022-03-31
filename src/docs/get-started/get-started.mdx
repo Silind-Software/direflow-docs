@@ -138,10 +138,20 @@ A Direflow Setup is using the same configuration as in [create-react-app](https:
 However, this file offers the ability to further override any of the Webpack config that ships with Direflow.  
 Simply add an override after the first line:
 ```javascript
-module.exports = (config, env) => ({
-  ...webpackConfig(config, env),
-  // Add your own webpack config here (optional)
-});
+module.exports = {
+  webpack: (config, env) => ({
+    ...webpackConfig(config, env),
+    // Add your own webpack config here (optional)
+  }),
+  devServer: (configFunction) => {
+    return function (proxy, allowedHost) {
+      // Add your own devServer proxy config here
+      // Such as proxy = {target: "/direflow", secure: false, changeOrigin: true }
+      const config = configFunction(proxy, allowedHost);
+      return config;
+    };
+  },
+};
 ```
 
 ## Access the DOM element
